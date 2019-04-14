@@ -64,8 +64,14 @@ var io = require('socket.io')(http);
 io.on('connection', function(socket){
   console.log('user connected');
   socket.on('chat message', function(msg){
+    message = msg.message;
+    name = msg.name;
     console.log("message recieved", msg);
     io.emit('chat message', msg);
+  });
+  socket.on('new player', function(msg){
+    console.log("player added", msg);
+    io.emit('player added', msg);
   });
   socket.on('disconnect', function(){
     console.log('user disconnected');

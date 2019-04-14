@@ -7,14 +7,21 @@ console.log('hello world :o');
 
 var socket = io.connect();
 
+var playerName = ""
+
 const nameForm = document.getElementById("name_form");
 const nameInput = document.getElementById("name_input");
 
 nameForm.onsubmit = function(event) {
   event.preventDefault();  
   
-  socket.emit('new player', nameInput.value);
+  playerName = nameInput.value;
+  socket.emit('new player', playerName);
   nameInput.value="";
+  
+  
+  chatForm.style.display = "block";
+  nameForm.style.display = "none";
 }
 
 const chatForm = document.getElementById("chat_form");
@@ -23,9 +30,15 @@ const messageInput = document.getElementById("message_input");
 chatForm.onsubmit = function(event) {
   event.preventDefault();  
   
-  socket.emit('chat message', messageInput.value);
+  socket.emit('chat message', { message: messageInput.value, name: playerName });
   messageInput.value="";
 }
+
+socket.on('player added', function(msg){
+  var li=document.createElement("li");
+  li.appendChild(document.createTextNode(msg + ' joined'));
+  document.getElementById("messages").appendChild(li);
+});
 
 socket.on('chat message', function(msg){
   var li=document.createElement("li");
