@@ -29,3 +29,9 @@ Made by [Glitch](https://glitch.com/)
 -------------------
 
 \ ゜o゜)ノ
+
+Chat game
+--------
+
+Following this tutorial to start with chat: https://medium.freecodecamp.org/building-a-chat-application-with-mean-stack-637254d1136d
+
