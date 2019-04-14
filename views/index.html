@@ -20,23 +20,27 @@
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
     
+    
+    <!-- import socket io -->
+    <script src="/socket.io/socket.io.js"></script>
     <!-- import the webpage's client-side javascript file -->
     <script src="/client.js" defer></script>
   </head>
   <body>
     <header>
       <h1>
-        A Dream of the Future
+        CHAT
       </h1>
     </header>
 
     <main>
+
+      <form id="chat">
+        <input id="m" autocomplete="off" />
+        <button id="send">Send</button>
+      </form>
       
-      
-    <div>
-      <input id="m" ng-model="message" autocomplete="off" />
-      <button ng-click="send()">Send</button>
-    </div>
+    </main>
 
     <!-- include the Glitch button to show what the webpage is about and
           to make it easier for folks to view source and remix -->

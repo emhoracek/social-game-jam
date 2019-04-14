@@ -3,6 +3,31 @@
 
 console.log('hello world :o');
 
+
+const form = document.getElementById("m");
+const input = document.getElementById("m");
+const sendButton = document.getElementById("send");
+
+form.onSubmit = function(event) {
+  event.preventDefault();  
+  
+  socket.emit('chat message', $scope.message);
+  socket.message="";
+}
+
+ var socket = io.connect();
+ $scope.send = function(){
+
+ }
+ socket.on('chat message', function(msg){
+  var li=document.createElement("li");
+  li.appendChild(document.createTextNode(msg));
+  document.getElementById("messages").appendChild(li);
+ });
+
+
+// Original app
+
 let dreams = [];
 
 // define variables that reference elements on our page
