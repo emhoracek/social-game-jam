@@ -12,7 +12,7 @@ const input = document.getElementById("m");
 const sendButton = document.getElementById("send");
 
 form.onSubmit = function(event) {
-  console.log("sumbmit!")
+  console.log("submit!")
   event.preventDefault();  
   
   socket.emit('chat message', input.value());

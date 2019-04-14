@@ -55,12 +55,6 @@ app.get('/getDreams', function(request, response) {
   });
 });
 
-// listen for requests :)
-var listener = app.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
-
-
 // CHAT APP STUFF 
 
 var http = require('http').Server(app);
@@ -70,6 +64,7 @@ var io = require('socket.io')(http);
 io.on('connection', function(socket){
   console.log('user connected');
   socket.on('chat message', function(msg){
+    console.log("message recieved", msg);
     io.emit('chat message', msg);
   });
   socket.on('disconnect', function(){
@@ -77,3 +72,7 @@ io.on('connection', function(socket){
   });
 });
 
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
+});
