@@ -35,3 +35,16 @@ Chat game
 
 Following this tutorial to start with chat: https://medium.freecodecamp.org/building-a-chat-application-with-mean-stack-637254d1136d
 
+
+
+Plan
+----
+
+1. Players set their names (local storage)
+1. Players select characters (text) and sents these to backend
+1. Server shows contest
+1. Players choose their fighter and add a comment (if wanted)
+1. Players vote on who wins
+1. Server adds points
+1. Server shows who won
+1. Next contest

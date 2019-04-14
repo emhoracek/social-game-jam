@@ -11,11 +11,11 @@ const form = document.getElementById("chat");
 const input = document.getElementById("m");
 const sendButton = document.getElementById("send");
 
-form.onSubmit = function(event) {
+form.onsubmit = function(event) {
   console.log("submit!")
   event.preventDefault();  
   
-  socket.emit('chat message', input.value());
+  socket.emit('chat message', input.value);
   input.value="";
 }
 
