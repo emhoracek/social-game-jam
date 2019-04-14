@@ -26,6 +26,7 @@ nameForm.onsubmit = function(event) {
 
 const chatForm = document.getElementById("chat_form");
 const messageInput = document.getElementById("message_input");
+const noMessages = document.getElementById("no_messages_message");
 
 chatForm.onsubmit = function(event) {
   event.preventDefault();  
@@ -35,12 +36,61 @@ chatForm.onsubmit = function(event) {
 }
 
 socket.on('player added', function(msg){
+  if (noMessages.style.display !== "none") {
+    noMessages.style = "none";
+  }
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(msg + ' joined'));
   document.getElementById("messages").appendChild(li);
 });
 
+
+const characterForm = document.getElementById("character_form");
+const characterInput = document.getElementById("character_input");
+const noCharacters = document.getElementById("no_characters_message");
+const characterMessage = document.getElementById("character_helper");
+
+var characters = [];
+
+characterForm.onsubmit = function(event) {
+  event.preventDefault();  
+  
+  socket.emit('character added', { message: characterInput.value, name: playerName });
+  characterInput.value="";
+  
+  characterMessage.innerText(updateCharacterMessage());
+}
+
+function updateCharacterFormAndMessage(characters) {
+  numCharacters = characters.length;
+  
+  if numCharacters > '5' {
+    // hide form
+    return ''
+  }
+  if numCharacters == '5' {
+    return "You can add one more character";
+  }
+  if numCharacters > 1 && numCharacters < 5 {
+    return "You can add " + 6 - numCharacters + " more characters.";
+  }
+  if numCharacters == '1'
+  
+}
+
+socket.on('character added', function(msg){
+  if (noCharacters.style.display !== "none") {
+    noCharacters.style = "none";
+  }
+  var li=document.createElement("li");
+  li.appendChild(document.createTextNode(msg + ' joined'));
+  document.getElementById("characters").appendChild(li);
+});
+
 socket.on('chat message', function(name, msg){
+  if (noMessages.style.display !== "none") {
+    noMessages.style = "none";
+  }
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(name + ': ' + msg));
   document.getElementById("messages").appendChild(li);
