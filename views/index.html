@@ -34,7 +34,7 @@
     </header>
 
     <main>      
-      <div id="characters">
+      <div id="characters" style="float: left; width: 500px; margin: 0.5em;">
         <h2>
           Your character deck
         </h2>
@@ -45,15 +45,10 @@
       </div>
       
       
-      <div id="messages">
-        <h2>
-          Messages
-        </h2>
-        <p id="no_messages_message">
-           No one is talking.
-        </p>
-      </div>
       
+      <div class="clear_float" style="float: left; width: 100%">
+        &nbsp;
+      </div>
       
       <form id="name_form">
         <h2>
@@ -64,17 +59,15 @@
       </form>
       
       
-      <form id="character_form" style="display: none">
-        <h2>
-          Add a character
-        </h2>
-        <p id="characters_helper">
-          Add 6 more characters.
-        </p>
-        <input id="character_input" autocomplete="off" />
-        <input type="submit" value="Add Character" />
-      </form>
       
+      <div id="messages" style="float: left; width: 500px; margin: 0.5em;">
+        <h2>
+          Messages
+        </h2>
+        <p id="no_messages_message">
+           No one is talking.
+        </p>
+      </div>
 
       <form id="chat_form" style="display:none">
         <h2>

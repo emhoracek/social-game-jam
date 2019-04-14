@@ -35,9 +35,7 @@ chatForm.onsubmit = function(event) {
 }
 
 socket.on('player added', function(msg){
-  if (noMessages.style.display !== "none") {
-    noMessages.style = "none";
-  }
+  noMessages.style.display = "none";
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(msg + ' joined'));
   document.getElementById("messages").appendChild(li);
@@ -54,7 +52,7 @@ var characters = [];
 characterForm.onsubmit = function(event) {
   event.preventDefault();  
   
-  socket.emit('character added', playerName, characterInput.value );
+  socket.emit('new character', playerName, characterInput.value );
   characterInput.value="";
 }
 
@@ -70,15 +68,13 @@ function updateCharacterFormAndMessage() {
     return "Please add one more character";
   }
   
-  return "Please add " + 6 - numCharacters + " more characters.";
+  return "Please add " + (6 - numCharacters) + " more characters.";
 }
 
 socket.on('character added', function(player, character){
-  if (noCharacters.style.display !== "none") {
-    noCharacters.style = "none";
-  }
+  noCharacters.style.display = "none";
   
-  cha
+  characters.push(character);
   
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(character));
@@ -91,9 +87,7 @@ socket.on('character added', function(player, character){
 });
 
 socket.on('chat message', function(name, msg){
-  if (noMessages.style.display !== "none") {
-    noMessages.style = "none";
-  }
+  noMessages.style.display = "none";
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(name + ': ' + msg));
   document.getElementById("messages").appendChild(li);
