@@ -62,6 +62,26 @@ var io = require('socket.io')(http);
 
 var players = [];
 var gameState = {};
+gameState.started = false;
+
+function addPlayer(name){
+  players.push(name);
+  gameState.players.push({"name" : name });
+};
+
+function addCharacter(player, character) {
+  gameState.players.filter((
+    
+    
+    .characters.push(character);
+  if (!gameState.started) {
+    checkIfGameCanStart(); 
+  }
+}
+
+function checkIfGameCanStart() {
+  
+}
 
 io.on('connection', function(socket){
   console.log('user connected');
@@ -73,10 +93,12 @@ io.on('connection', function(socket){
   });
   socket.on('new player', function(msg){
     console.log("player added", msg);
+    addPlayer(msg);
     io.emit('player added', msg);
   });
   socket.on('new character', function(player, character){
     console.log("character added", player, character);
+    addCharacter(player, character);
     io.emit('character added', player, character);
   });
   socket.on('disconnect', function(){
