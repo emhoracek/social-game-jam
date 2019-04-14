@@ -7,16 +7,24 @@ console.log('hello world :o');
 
 var socket = io.connect();
 
-const form = document.getElementById("chat");
-const input = document.getElementById("m");
-const sendButton = document.getElementById("send");
+const nameForm = document.getElementById("name_form");
+const nameInput = document.getElementById("name_input");
 
-form.onsubmit = function(event) {
-  console.log("submit!")
+nameForm.onsubmit = function(event) {
   event.preventDefault();  
   
-  socket.emit('chat message', input.value);
-  input.value="";
+  socket.emit('new player', nameInput.value);
+  nameInput.value="";
+}
+
+const chatForm = document.getElementById("chat_form");
+const messageInput = document.getElementById("message_input");
+
+chatForm.onsubmit = function(event) {
+  event.preventDefault();  
+  
+  socket.emit('chat message', messageInput.value);
+  messageInput.value="";
 }
 
 socket.on('chat message', function(msg){

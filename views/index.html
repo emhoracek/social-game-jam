@@ -29,7 +29,7 @@
   <body>
     <header>
       <h1>
-        CHAT
+        GAME
       </h1>
     </header>
 
@@ -38,10 +38,15 @@
       <div id="messages">
         
       </div>
+      
+      <form id="name_form">
+        <input id="name_input" autocomplete="off" />
+        <input type="submit" value="Set name" />
+      </form>
 
-      <form id="chat">
-        <input id="m" autocomplete="off" />
-        <input type="submit" id="send" value="Send" />
+      <form id="chat_form" style="display:none">
+        <input id="messsage_input" autocomplete="off" />
+        <input type="submit" value="Send" />
       </form>
       
     </main>
