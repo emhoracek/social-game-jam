@@ -19,8 +19,7 @@ nameForm.onsubmit = function(event) {
   socket.emit('new player', playerName);
   nameInput.value="";
   
-  
-  chatForm.style.display = "block";
+  characterForm.style.display = "block";
   nameForm.style.display = "none";
 }
 
@@ -48,43 +47,47 @@ socket.on('player added', function(msg){
 const characterForm = document.getElementById("character_form");
 const characterInput = document.getElementById("character_input");
 const noCharacters = document.getElementById("no_characters_message");
-const characterMessage = document.getElementById("character_helper");
+const characterMessage = document.getElementById("characters_helper");
 
 var characters = [];
 
 characterForm.onsubmit = function(event) {
   event.preventDefault();  
   
-  socket.emit('character added', { message: characterInput.value, name: playerName });
+  socket.emit('character added', playerName, characterInput.value );
   characterInput.value="";
-  
-  characterMessage.innerText(updateCharacterMessage());
 }
 
-function updateCharacterFormAndMessage(characters) {
-  numCharacters = characters.length;
+function updateCharacterFormAndMessage() {
+  const numCharacters = characters.length;
   
-  if numCharacters > '5' {
-    // hide form
+  if (numCharacters > '5') {
+    characterForm.style.display = "none";
+    chatForm.style.display = "block";
     return ''
   }
-  if numCharacters == '5' {
-    return "You can add one more character";
+  if (numCharacters == '5') {
+    return "Please add one more character";
   }
-  if numCharacters > 1 && numCharacters < 5 {
-    return "You can add " + 6 - numCharacters + " more characters.";
-  }
-  if numCharacters == '1'
   
+  return "Please add " + 6 - numCharacters + " more characters.";
 }
 
-socket.on('character added', function(msg){
+socket.on('character added', function(player, character){
   if (noCharacters.style.display !== "none") {
     noCharacters.style = "none";
   }
+  
+  cha
+  
   var li=document.createElement("li");
-  li.appendChild(document.createTextNode(msg + ' joined'));
+  li.appendChild(document.createTextNode(character));
   document.getElementById("characters").appendChild(li);
+  
+  const message = updateCharacterFormAndMessage();
+  
+  characterMessage.innerText = message;
+  
 });
 
 socket.on('chat message', function(name, msg){

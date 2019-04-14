@@ -73,6 +73,10 @@ io.on('connection', function(socket){
     console.log("player added", msg);
     io.emit('player added', msg);
   });
+  socket.on('new character', function(player, character){
+    console.log("character added", player, character);
+    io.emit('character added', player, character);
+  });
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
