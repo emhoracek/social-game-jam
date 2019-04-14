@@ -26,6 +26,7 @@ nameForm.onsubmit = function(event) {
 const chatForm = document.getElementById("chat_form");
 const messageInput = document.getElementById("message_input");
 const noMessages = document.getElementById("no_messages_message");
+const noPlayers = document.getElementById("no_players_message");
 
 chatForm.onsubmit = function(event) {
   event.preventDefault();  
@@ -35,10 +36,16 @@ chatForm.onsubmit = function(event) {
 }
 
 socket.on('player added', function(msg){
+  noPlayers.style.display = "none";
   noMessages.style.display = "none";
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(msg + ' joined'));
   document.getElementById("messages").appendChild(li);
+  
+  
+  var li=document.createElement("li");
+  li.appendChild(document.createTextNode(msg));
+  document.getElementById("players").appendChild(li);
 });
 
 

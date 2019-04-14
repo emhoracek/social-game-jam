@@ -63,12 +63,6 @@ var io = require('socket.io')(http);
 var players = [];
 var gameState = {};
 
-function updateGameState(player, character) {
-  gameState[player]
-  
-};
-
-
 io.on('connection', function(socket){
   console.log('user connected');
   socket.on('chat message', function(msg){
