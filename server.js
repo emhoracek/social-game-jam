@@ -60,6 +60,14 @@ app.get('/getDreams', function(request, response) {
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+var players = [];
+var gameState = {};
+
+function updateGameState(player, character) {
+  gameState[player]
+  
+};
+
 
 io.on('connection', function(socket){
   console.log('user connected');
