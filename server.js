@@ -87,3 +87,28 @@ http.listen(3000, function(){
   console.log('listening on *:3000');
 });
 
+
+const challenges = [
+  "babysitting",
+  "fist-fighting",
+  "law",
+  "crime",
+  "visual art",
+  "housekeeping",
+  "architecture",
+  "no-holds-barred combat",
+  "piloting",
+  "triathalon",
+  "marathon",
+  "crime-fighting",
+  "animal-handling",
+  "sewing",
+  "well-dressed",
+  "slacking",
+  "video games",
+  "music",
+  "theater",
+  "tennis",
+  "philosophy",
+  "spelling bee"
+  ];
