@@ -40,9 +40,9 @@ socket.on('player added', function(msg){
   document.getElementById("messages").appendChild(li);
 });
 
-socket.on('chat message', function(msg){
+socket.on('chat message', function(name, msg){
   var li=document.createElement("li");
-  li.appendChild(document.createTextNode(msg));
+  li.appendChild(document.createTextNode(name + ': ' + msg));
   document.getElementById("messages").appendChild(li);
 });
 

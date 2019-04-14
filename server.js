@@ -64,10 +64,10 @@ var io = require('socket.io')(http);
 io.on('connection', function(socket){
   console.log('user connected');
   socket.on('chat message', function(msg){
-    message = msg.message;
-    name = msg.name;
+    const message = msg.message;
+    const name = msg.name;
     console.log("message recieved", msg);
-    io.emit('chat message', msg);
+    io.emit('chat message', name, message);
   });
   socket.on('new player', function(msg){
     console.log("player added", msg);

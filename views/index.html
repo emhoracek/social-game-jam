@@ -29,22 +29,57 @@
   <body>
     <header>
       <h1>
-        GAME
+        Showdown
       </h1>
     </header>
 
-    <main>
-      
-      <div id="messages">
+    <main>      
+      <div id="characters">
+        <h2>
+          Your character deck
+        </h2>
         
+        <p>
+           You have no characters in your deck.
+        </p>
       </div>
       
+      
+      <div id="messages">
+        <h2>
+          Messages
+        </h2>
+        <p id="no_message>
+           No one is talking.
+        </p>
+      </div>
+      
+      
       <form id="name_form">
+        <h2>
+          Your name
+        </h2>
         <input id="name_input" autocomplete="off" />
         <input type="submit" value="Set name" />
       </form>
+      
+      
+      <form id="character_form" style="display: none">
+        <h2>
+          Add a character
+        </h2>
+        <p>
+          Add 6 more characters.
+        </p>
+        <input id="character_input" autocomplete="off" />
+        <input type="submit" value="Add Character" />
+      </form>
+      
 
       <form id="chat_form" style="display:none">
+        <h2>
+          Chat
+        </h2>
         <input id="message_input" autocomplete="off" />
         <input type="submit" value="Send" />
       </form>
