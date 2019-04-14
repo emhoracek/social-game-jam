@@ -1,33 +1,34 @@
+/* globals io */
+
 // client-side js
 // run by the browser each time your view template referencing it is loaded
 
+
 console.log('hello world :o');
 
+var socket = io.connect();
 
-const form = document.getElementById("m");
+const form = document.getElementById("chat");
 const input = document.getElementById("m");
 const sendButton = document.getElementById("send");
 
 form.onSubmit = function(event) {
+  console.log("sumbmit!")
   event.preventDefault();  
   
-  socket.emit('chat message', $scope.message);
-  socket.message="";
+  socket.emit('chat message', input.value());
+  input.value="";
 }
 
- var socket = io.connect();
- $scope.send = function(){
-
- }
- socket.on('chat message', function(msg){
+socket.on('chat message', function(msg){
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(msg));
   document.getElementById("messages").appendChild(li);
- });
+});
 
 
 // Original app
-
+/*
 let dreams = [];
 
 // define variables that reference elements on our page
@@ -72,3 +73,4 @@ dreamsForm.onsubmit = function(event) {
   dreamInput.value = '';
   dreamInput.focus();
 };
+*/
