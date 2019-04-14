@@ -48,3 +48,10 @@ Plan
 1. Server adds points
 1. Server shows who won
 1. Next contest
+
+Next iterations
+--------------
+
+ * Add spectators option
+ * Add separate password-ed game rooms
+ * Add graphics
