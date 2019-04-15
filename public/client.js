@@ -79,18 +79,19 @@ function updateCharacterFormAndMessage() {
 }
 
 socket.on('character added', function(player, character){
-  noCharacters.style.display = "none";
+  if (player == playerName) {
+    noCharacters.style.display = "none";
   
-  characters.push(character);
-  
-  var li=document.createElement("li");
-  li.appendChild(document.createTextNode(character));
-  document.getElementById("characters").appendChild(li);
-  
-  const message = updateCharacterFormAndMessage();
-  
-  characterMessage.innerText = message;
-  
+    characters.push(character);
+
+    var li=document.createElement("li");
+    li.appendChild(document.createTextNode(character));
+    document.getElementById("characters").appendChild(li);
+
+    const message = updateCharacterFormAndMessage();
+
+    characterMessage.innerText = message;
+  }
 });
 
 socket.on('chat message', function(name, msg){
