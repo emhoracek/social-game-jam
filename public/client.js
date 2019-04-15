@@ -7,10 +7,10 @@ console.log('hello world :o');
 
 var socket = io.connect();
 
+/* NEW PLAYERS */
+var playerName = "";
 
-
-/* NEW PLAYERS *?
-var playerName = ""
+const noPlayers = document.getElementById("no_players_message");
 
 const nameForm = document.getElementById("name_form");
 const nameInput = document.getElementById("name_input");
@@ -26,18 +26,6 @@ nameForm.onsubmit = function(event) {
   nameForm.style.display = "none";
 }
 
-const chatForm = document.getElementById("chat_form");
-const messageInput = document.getElementById("message_input");
-const noMessages = document.getElementById("no_messages_message");
-const noPlayers = document.getElementById("no_players_message");
-
-chatForm.onsubmit = function(event) {
-  event.preventDefault();  
-  
-  socket.emit('chat message', { message: messageInput.value, name: playerName });
-  messageInput.value="";
-}
-
 socket.on('player added', function(msg){
   noPlayers.style.display = "none";
   noMessages.style.display = "none";
@@ -51,7 +39,7 @@ socket.on('player added', function(msg){
   document.getElementById("players").appendChild(li);
 });
 
-
+/* ADDING CHARACTERS */
 const characterForm = document.getElementById("character_form");
 const characterInput = document.getElementById("character_input");
 const noCharacters = document.getElementById("no_characters_message");
@@ -97,6 +85,18 @@ socket.on('character added', function(player, character){
   }
 });
 
+/* CHATTING */
+const chatForm = document.getElementById("chat_form");
+const messageInput = document.getElementById("message_input");
+const noMessages = document.getElementById("no_messages_message");
+
+chatForm.onsubmit = function(event) {
+  event.preventDefault();  
+  
+  socket.emit('chat message', playerName, messageInput.value);
+  messageInput.value="";
+}
+
 socket.on('chat message', function(name, msg){
   noMessages.style.display = "none";
   var li=document.createElement("li");
@@ -109,8 +109,6 @@ socket.on('game started', function(challenge){
   document.getElementById("game_state_message").innerText = 
     "Which of your characters would be better at: " + challenge;
 });
-
-
 
 // Original app
 /*

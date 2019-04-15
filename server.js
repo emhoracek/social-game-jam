@@ -64,6 +64,10 @@ var players = [];
 var gameState = {players : []};
 gameState.started = false;
 
+function addUser() {
+  
+}
+
 function addPlayer(name){
   players.push(name);
   gameState.players.push({"name" : name, characters: [] });
@@ -100,11 +104,10 @@ function startGame() {
 
 io.on('connection', function(socket){
   console.log('user connected');
-  socket.on('chat message', function(msg){
-    const message = msg.message;
-    const name = msg.name;
-    console.log("message recieved", msg);
-    io.emit('chat message', name, message);
+  io.emit('user added', players);
+  socket.on('chat message', function(player, message){
+    console.log("message recieved", player, message);
+    io.emit('chat message', player, message);
   });
   socket.on('new player', function(msg){
     console.log("player added", msg);
