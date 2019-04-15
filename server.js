@@ -61,12 +61,12 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var players = [];
-var gameState = {};
+var gameState = {players : []};
 gameState.started = false;
 
 function addPlayer(name){
   players.push(name);
-  gameState.players.push({"name" : name });
+  gameState.players.push({"name" : name, characters: [] });
 };
 
 function addCharacter(player, character) {
@@ -86,10 +86,12 @@ function addCharacter(player, character) {
 }
 
 function gameCanStart() {
+  console.log("can game start");
   return gameState.players.every(x => x.characters.length > 5);
 }
 
 function startGame() { 
+  console.log("starting game");
   const element = Math.round(Math.random() * (challenges.length - 1))
   const challenge = challenges[element];
   
