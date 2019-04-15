@@ -70,17 +70,30 @@ function addPlayer(name){
 };
 
 function addCharacter(player, character) {
-  gameState.players.filter((
+  const players = gameState.players.filter(x => x.name == player)
     
+  if (players) {
+    const player = players[0];
+    player.characters.push({ "name": character});
     
-    .characters.push(character);
-  if (!gameState.started) {
-    checkIfGameCanStart(); 
+    if (!gameState.started) {
+      if (gameCanStart()){
+        startGame();
+      }
+    }
   }
+
 }
 
-function checkIfGameCanStart() {
+function gameCanStart() {
+  return gameState.players.every(x => x.characters.length > 5);
+}
+
+function startGame() { 
+  const element = Math.round(Math.random() * (challenges.length - 1))
+  const challenge = challenges[element];
   
+  io.emit('game started', challenge);
 }
 
 io.on('connection', function(socket){

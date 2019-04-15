@@ -101,6 +101,21 @@ socket.on('chat message', function(name, msg){
 });
 
 
+socket.on('game started', function(challenge){
+  
+  var li=document.createElement("li");
+  li.appendChild(document.createTextNode(character));
+  document.getElementById("gameState").innerText = 
+    "Which of your characters would be better at 
+  
+  const message = updateCharacterFormAndMessage();
+  
+  characterMessage.innerText = message;
+  
+});
+
+
+
 // Original app
 /*
 let dreams = [];
