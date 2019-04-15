@@ -7,6 +7,9 @@ console.log('hello world :o');
 
 var socket = io.connect();
 
+
+
+/* NEW PLAYERS *?
 var playerName = ""
 
 const nameForm = document.getElementById("name_form");
