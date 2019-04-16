@@ -7,9 +7,6 @@ var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-let player = require('./player');
-
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
@@ -26,8 +23,8 @@ var db = new sqlite3.Database(dbFile);
 // if ./.data/sqlite.db does not exist, create it, otherwise print records to console
 db.serialize(function(){
   if (!exists) {
-    db.run('CREATE TABLE Dreams (dream TEXT)');
-    console.log('New table Dreams created!');
+    db.run('CREATE TABLE Players (id INT, name TEXT, points INT)');
+    console.log('New table Players created!');
     
     // insert default dreams
     db.serialize(function() {
@@ -58,7 +55,12 @@ app.get('/getDreams', function(request, response) {
   });
 });
 
-// CHAT APP STUFF 
+// PLAYERS
+
+let player = require('./player');
+
+
+// OTHER CHAT APP STUFF 
 
 var http = require('http').Server(app);
 var io = require('socket.io')(http);

@@ -2,6 +2,7 @@ class Player {
   constructor (name) {
     this.name = name;
     this.characters = [];
+    this.points = 0;
   }
   
   addCharacter (character) {
@@ -29,7 +30,7 @@ function assert (desc, f) {
   }
 }
 
-assert ("works", yay.characters[0] === ["Superman"]);
+assert ("works", yay.characters[0] === "Superman");
 
 console.log(yay.characters);
 
