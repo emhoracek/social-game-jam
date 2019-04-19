@@ -56,11 +56,14 @@
         <style> 
           input[type=radio] { width: auto; display: inline; }
           #character-choice-list { list-style: none; padding: 0; }
+          #character-sample { display: none }
+          .wait { visibility: hidden; }
         </style>
         <form id="character-choice">
           <ul id="character-choice-list">
-            <li id="character-sample"><input type="radio" value="" /> <span>Sample</span></li>
+            <li id="character-sample"><input type="radio" class="game-mode wait" value="" /> <span>Sample</span></li>
           </ul>
+          <input type="submit" class="game-mode wait" value="Choose Character" />
         </form>
       </div>
       

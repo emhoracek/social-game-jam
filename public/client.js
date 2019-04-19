@@ -69,21 +69,25 @@ function updateCharacterFormAndMessage() {
   return "Please add " + (6 - numCharacters) + " more characters.";
 }
 
+function addCharacterFormItem(character) {
+  var sample=document.getElementById("character-sample");
+  var li = sample.cloneNode(true);
+  console.log(li);
+  var radioInput = li.getElementsByTagName("input")[0];
+  radioInput.value = character;
+  var nameSpan = li.getElementsByTagName("span")[0];
+  nameSpan.innerText = character;
+  li.removeAttribute("id");
+  document.getElementById("character-choice-list").appendChild(li); 
+}
+
 socket.on('character added', function(player, character){
   if (player == playerName) {
     noCharacters.style.display = "none";
   
     characters.push(character);
 
-    var sample=document.getElementById("character-sample");
-    var li = sample.cloneNode(true);
-    console.log(li);
-    var radioInput = li.getElementsByTagName("input")[0];
-    radioInput.value = character;
-    var nameSpan = li.getElementsByTagName("span")[0];
-    nameSpan.innerText = character;
-    li.id = "";
-    document.getElementById("character-choice-list").appendChild(li);
+    addCharacterFormItem(character);
 
     const message = updateCharacterFormAndMessage();
 
@@ -92,8 +96,6 @@ socket.on('character added', function(player, character){
 });
 
 /* CHOOSING CHARACTERS */
-
-
 
 /* CHATTING */
 const chatForm = document.getElementById("chat_form");
@@ -114,10 +116,12 @@ socket.on('chat message', function(name, msg){
   document.getElementById("messages").appendChild(li);
 });
 
+/* STARTING THE GAME */
 
 socket.on('game started', function(challenge){
   document.getElementById("game_state_message").innerText = 
     "Which of your characters would be better at: " + challenge;
+  document.getElementsByClassName('game-mode').removeClass('wait').addClass('choose');
 });
 
 // Original app
