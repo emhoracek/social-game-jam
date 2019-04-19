@@ -85,6 +85,10 @@ socket.on('character added', function(player, character){
   }
 });
 
+/* CHOOSING CHARACTERS */
+
+
+
 /* CHATTING */
 const chatForm = document.getElementById("chat_form");
 const messageInput = document.getElementById("message_input");
