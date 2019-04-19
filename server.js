@@ -95,7 +95,9 @@ function addCharacter(playerName, character) {
 
 function gameCanStart() {
   console.log("can game start");
-  return gameState.players.every(x => x.characters.length > 5);
+  console.log(gameState.players);
+  var result= gameState.players.every(x => x.characters.length > 5);
+  return result;
 }
 
 function startGame() { 

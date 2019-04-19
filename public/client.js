@@ -121,7 +121,9 @@ socket.on('chat message', function(name, msg){
 socket.on('game started', function(challenge){
   document.getElementById("game_state_message").innerText = 
     "Which of your characters would be better at: " + challenge;
-  document.getElementsByClassName('game-mode').removeClass('wait').addClass('choose');
+  document.getElementsByClassName('game-mode').foreach(x => {
+    x.className = 'game-mode choose';
+  });
 });
 
 // Original app
