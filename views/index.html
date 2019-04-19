@@ -53,10 +53,13 @@
         <p id="no_characters_message">
            You have no characters in your deck.
         </p>
-        
+        <style> 
+          input[type=radio] { width: auto; display: inline; }
+          #character-choice-list { list-style: none; padding: 0; }
+        </style>
         <form id="character-choice">
-          <ul id="deck">
-            <li id="sample"><input type="submit" value="" /> <span id="sample-character"></span></li>
+          <ul id="character-choice-list">
+            <li id="character-sample"><input type="radio" value="" /> <span>Sample</span></li>
           </ul>
         </form>
       </div>

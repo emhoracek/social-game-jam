@@ -75,9 +75,12 @@ socket.on('character added', function(player, character){
   
     characters.push(character);
 
-    var li=document.createElement("li");
+    var sample=document.getElementById("character-sample");
+    var li = sample.cloneNode();
+    li.id = "";
+    li.getElementBy
     li.appendChild(document.createTextNode(character));
-    document.getElementById("characters").appendChild(li);
+    document.getElementById("character-choice-list").appendChild(li);
 
     const message = updateCharacterFormAndMessage();
 
