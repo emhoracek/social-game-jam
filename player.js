@@ -6,14 +6,31 @@ class Player {
   }
   
   addCharacter (character) {
-    this.characters.push(character);
+    this.characters.push(new Character(character));
     return this;
   }
   
+  points () {
+    return this.characters.reduce((acc, c) => acc + c.points);
+  }
   
 };
 
 
+class Character {
+  constructor (name) {
+    this.name = name;
+    this.points = 0;
+  }
+
+  addPoint() {
+    this.points = this.points + 1;
+    return this;
+  }
+
+}
+  
+  
 console.log("hello from player");
 
 let blah = new Player("hi");

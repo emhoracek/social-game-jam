@@ -58,6 +58,8 @@ app.get('/getDreams', function(request, response) {
 // PLAYERS
 
 let player = require('./player');
+let Player = player.Player;
+let Character = player.Character;
 
 
 // OTHER CHAT APP STUFF 
@@ -74,8 +76,7 @@ function addUser() {
 }
 
 function addPlayer(name){
-  players.push(name);
-  gameState.players.push({"name" : name, characters: [] });
+  gameState.players.push(enw player.Player(name));
 };
 
 function addCharacter(player, character) {
