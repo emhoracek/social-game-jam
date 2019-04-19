@@ -76,10 +76,13 @@ socket.on('character added', function(player, character){
     characters.push(character);
 
     var sample=document.getElementById("character-sample");
-    var li = sample.cloneNode();
+    var li = sample.cloneNode(true);
+    console.log(li);
+    var radioInput = li.getElementsByTagName("input")[0];
+    radioInput.value = character;
+    var nameSpan = li.getElementsByTagName("span")[0];
+    nameSpan.innerText = character;
     li.id = "";
-    li.getElementBy
-    li.appendChild(document.createTextNode(character));
     document.getElementById("character-choice-list").appendChild(li);
 
     const message = updateCharacterFormAndMessage();
