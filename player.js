@@ -30,7 +30,7 @@ class Character {
 
 }
   
-module.eports = {
+module.exports = {
   Character : Character,
   Player: Player
 };

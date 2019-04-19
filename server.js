@@ -58,7 +58,7 @@ app.get('/getDreams', function(request, response) {
 // PLAYERS
 
 let { Player } = require('./player');
-let { er } = require('./player');
+let { Character } = require('./player');
 
 
 // OTHER CHAT APP STUFF 
