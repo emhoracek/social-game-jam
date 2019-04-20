@@ -125,6 +125,9 @@ io.on('connection', function(socket){
     addCharacter(player, character);
     io.emit('character added', player, character);
   });
+  socket.on('character choice', function(player, character) {
+    console.log('
+  });
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });

@@ -93,6 +93,25 @@ socket.on('character added', function(player, character){
 });
 
 /* CHOOSING CHARACTERS */
+function addChooseHandlers () {
+  const choices = document.getElementsByClassName('character-choice');
+  
+  for (var i = 0; i < choices.length; i++) {
+   choices[0].onclick((e) => {
+     socket.emit('character choice', playerName, e.target.dataset.name);
+   });
+  }
+}
+
+function removeChooseHandlers () {
+  const choices = document.getElementsByClassName('character-choice');
+  
+  for (var i = 0; i < choices.length; i++) {
+   choices[0].onclick((e) => {
+     return;
+   });
+  }
+}
 
 /* CHATTING */
 const chatForm = document.getElementById("chat_form");
