@@ -72,11 +72,8 @@ function updateCharacterFormAndMessage() {
 function addCharacterFormItem(character) {
   var sample=document.getElementById("character-sample");
   var li = sample.cloneNode(true);
-  console.log(li);
-  var radioInput = li.getElementsByTagName("input")[0];
-  radioInput.value = character;
-  var nameSpan = li.getElementsByTagName("span")[0];
-  nameSpan.innerText = character;
+  li.innerText = character;
+  li.dataset.name = character;
   li.removeAttribute("id");
   document.getElementById("character-choice-list").appendChild(li); 
 }
@@ -121,9 +118,10 @@ socket.on('chat message', function(name, msg){
 socket.on('game started', function(challenge){
   document.getElementById("game_state_message").innerText = 
     "Which of your characters would be better at: " + challenge;
-  document.getElementsByClassName('game-mode').foreach(x => {
-    x.className = 'game-mode choose';
-  });
+  const elems = document.getElementsByClassName('game-mode')
+  for (var i = 0; i < elems.length; i ++) {
+    elems[i].className = 'game-mode choose';
+  };
 });
 
 // Original app

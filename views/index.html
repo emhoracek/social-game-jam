@@ -59,17 +59,12 @@
           #character-sample { display: none }
           .wait { visibility: hidden; }
         </style>
-        <form id="character-choice">
-          <fieldset>
-            <ul id="character-choice-list">
-              <li id="character-sample"><input type="radio" class="game-mode wait" value="" /> <span>Sample</span></li>
-            </ul>
-          </fieldset>
-          <input type="submit" class="game-mode wait" value="Choose Character" />
-        </form>
+        <ul id="character-choice-list">
+          <li class="game-mode wait" id="character-sample">Sample</li>
+        </ul>
       </div>
       
-      <form id="character_form" style="display: none;float: left; width: 500px; margin: 0.5em;">
+      <form id="character_form" style="display: none; float: left; width: 500px; margin: 0.5em;">
         <h2>
           Add a character
         </h2>
