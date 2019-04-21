@@ -96,6 +96,7 @@ socket.on('character added', function(player, character){
 
 var characterChoice = undefined;
 
+const charChoiceWrapper = document.getElementById('character-choice-message');
 const charChoiceMessage = document.getElementById('character-choice');
 
 function addChooseHandlers () {
@@ -141,6 +142,8 @@ socket.on('game started', function(challenge){
     "Which of your characters would be better at: " + challenge;
   addChooseHandlers();
 });
+
+/* AFTER CHOICE */
 
 // Original app
 /*
