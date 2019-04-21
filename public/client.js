@@ -97,8 +97,9 @@ function addChooseHandlers () {
   const choices = document.getElementsByClassName('character-choice');
   
   for (var i = 0; i < choices.length; i++) {
-   choices[0].onclick((e) => {
-     socket.emit('character choice', playerName, e.target.dataset.name);
+    console.log("add handler");
+    choices[0].addEventListener("click",(e) => {
+      socket.emit('character choice', playerName, e.target.dataset.name);
    });
   }
 }
@@ -137,10 +138,7 @@ socket.on('chat message', function(name, msg){
 socket.on('game started', function(challenge){
   document.getElementById("game_state_message").innerText = 
     "Which of your characters would be better at: " + challenge;
-  const elems = document.getElementsByClassName('game-mode')
-  for (var i = 0; i < elems.length; i ++) {
-    elems[i].className = 'game-mode choose';
-  };
+  addChooseHandlers();
 });
 
 // Original app
