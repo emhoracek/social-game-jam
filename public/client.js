@@ -99,6 +99,7 @@ function addChooseHandlers () {
   for (var i = 0; i < choices.length; i++) {
     console.log("add handler");
     choices[0].addEventListener("click",(e) => {
+      console.log("clicked");
       socket.emit('character choice', playerName, e.target.dataset.name);
    });
   }
