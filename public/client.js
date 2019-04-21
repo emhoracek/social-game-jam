@@ -96,6 +96,8 @@ socket.on('character added', function(player, character){
 
 var characterChoice = undefined;
 
+const charChoiceMessage = document.getElementById('character-choice');
+
 function addChooseHandlers () {
   const choices = document.getElementsByClassName('character-choice');
   
@@ -107,6 +109,7 @@ function addChooseHandlers () {
       } else {
         characterChoice = e.target.dataset.name;
         socket.emit('character choice', playerName, characterChoice);
+        charChoiceMessage.innerText = characterChoice;
       }
    });
   }
