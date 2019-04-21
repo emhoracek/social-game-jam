@@ -93,24 +93,21 @@ socket.on('character added', function(player, character){
 });
 
 /* CHOOSING CHARACTERS */
+
+var characterChoice = undefined;
+
 function addChooseHandlers () {
   const choices = document.getElementsByClassName('character-choice');
   
   for (var i = 0; i < choices.length; i++) {
     console.log("add handler");
-    choices[0].addEventListener("click",(e) => {
+    choices[i].addEventListener("click",(e) => {
       console.log("clicked");
-      socket.emit('character choice', playerName, e.target.dataset.name);
-   });
-  }
-}
-
-function removeChooseHandlers () {
-  const choices = document.getElementsByClassName('character-choice');
-  
-  for (var i = 0; i < choices.length; i++) {
-   choices[0].onclick((e) => {
-     return;
+      if (characterChoice) {
+      } else {
+        characterChoice = e.target.dataset.name;
+        socket.emit('character choice', playerName, characterChoice);
+      }
    });
   }
 }
