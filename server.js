@@ -52,7 +52,19 @@ nunjucks.configure('views', {
 app.get('/', function(request, response) {
   response.render('index.html');
 });
+// Player routes
 app.get('/start', function(request, response) {
+  response.render('name.html');
+});
+app.post('/start', function(request, response) {
+  const name = request.body.name;
+  if (name) {
+    addPlayer(name);
+    const urlName = encodeURIComponent(name);
+    response.redirect('/add?urlName=' + urlName);
+  } else {
+    response.redirect('/add?urlName=' + urlName);
+  }
   response.render('name.html');
 });
 app.get('/add', function(request, response) {
@@ -63,6 +75,9 @@ app.get('/choose', function(request, response) {
 });
 app.get('/vote', function(request, response) {
   response.render('voting_on_winner.html');
+});
+app.get('/results', function(request, response) {
+  response.render('viewing_results.html');
 });
 
 // endpoint to get all the dreams in the database
