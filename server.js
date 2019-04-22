@@ -52,6 +52,18 @@ nunjucks.configure('views', {
 app.get('/', function(request, response) {
   response.render('index.html');
 });
+app.get('/start', function(request, response) {
+  response.render('name.html');
+});
+app.get('/add', function(request, response) {
+  response.render('adding_characters.html');
+});
+app.get('/choose', function(request, response) {
+  response.render('choosing_challenger.html');
+});
+app.get('/vote', function(request, response) {
+  response.render('voting_on_winner.html');
+});
 
 // endpoint to get all the dreams in the database
 // currently this is the only endpoint, ie. adding dreams won't update the database
