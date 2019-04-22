@@ -61,11 +61,11 @@ app.post('/start', function(request, response) {
   if (name) {
     addPlayer(name);
     const urlName = encodeURIComponent(name);
-    response.redirect('/add?urlName=' + urlName);
+    response.redirect('/add');
   } else {
-    response.redirect('/add?urlName=' + urlName);
+    const msg = "Please enter your name."
+    response.render('name.html', { message: msg });
   }
-  response.render('name.html');
 });
 app.get('/add', function(request, response) {
   response.render('adding_characters.html');
