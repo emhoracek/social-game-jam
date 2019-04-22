@@ -41,9 +41,16 @@ db.serialize(function(){
   }
 });
 
+// nunjucks views
+var nunjucks = require('nunjucks');
+nunjucks.configure('views', {
+    autoescape: true,
+    express: app
+});
+
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+  response.render('index.html');
 });
 
 // endpoint to get all the dreams in the database
