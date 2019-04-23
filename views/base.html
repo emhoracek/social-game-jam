@@ -25,6 +25,8 @@
     <script src="/socket.io/socket.io.js"></script>
     <!-- import the webpage's client-side javascript file -->
     <script src="/client.js" defer></script>
+    <!-- additional scripts that template fragments may need -->
+    {% block scripts %}{% endblock %}
   </head>
   <body>
     <header>
