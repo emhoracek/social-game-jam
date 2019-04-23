@@ -12,20 +12,6 @@ var playerName = "";
 
 const noPlayers = document.getElementById("no_players_message");
 
-const nameForm = document.getElementById("name_form");
-const nameInput = document.getElementById("name_input");
-
-nameForm.onsubmit = function(event) {
-  event.preventDefault();  
-  
-  playerName = nameInput.value;
-  socket.emit('new player', playerName);
-  nameInput.value="";
-  
-  characterForm.style.display = "block";
-  nameForm.style.display = "none";
-}
-
 socket.on('player added', function(msg){
   noPlayers.style.display = "none";
   noMessages.style.display = "none";

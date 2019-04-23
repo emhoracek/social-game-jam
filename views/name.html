@@ -6,11 +6,11 @@ Showdown: Set your name
 
 {% block main %}
 
-  <form id="name_form" style="float: left; width: 500px; margin: 0.5em;">
+  <form method="post" action="/name">
     <h2>
       Your name
     </h2>
-    <input id="name_input" autocomplete="off" />
+    <input id="name_input" name="name" autocomplete="off" />
     <input type="submit" value="Set name" />
   </form>
 

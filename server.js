@@ -56,11 +56,12 @@ app.get('/', function(request, response) {
 app.get('/start', function(request, response) {
   response.render('name.html');
 });
-app.post('/start', function(request, response) {
+app.post('/name', function(request, response) {
   const name = request.body.name;
   if (name) {
+    console.log("player added", name);
     addPlayer(name);
-    const urlName = encodeURIComponent(name);
+    io.emit('player added', name);
     response.redirect('/add');
   } else {
     const msg = "Please enter your name."
@@ -150,9 +151,6 @@ io.on('connection', function(socket){
     io.emit('chat message', player, message);
   });
   socket.on('new player', function(msg){
-    console.log("player added", msg);
-    addPlayer(msg);
-    io.emit('player added', msg);
   });
   socket.on('new character', function(player, character){
     console.log("character added", player, character);
