@@ -58,6 +58,8 @@ function updateGameState() {
   gameRequest.onload = getGameListener;
   gameRequest.open('get', '/game');
   gameRequest.send();
+  
+  playerName = window.localStorage.getItem('playerName');
 };
 
 function getGameListener() {

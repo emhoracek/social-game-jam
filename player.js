@@ -2,7 +2,7 @@ class Player {
   constructor (name) {
     this.name = name;
     this.characters = [];
-    this.points;
+    this.points = 0;
   }
   
   addCharacter (character, source) {
