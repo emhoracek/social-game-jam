@@ -53,6 +53,9 @@ function updateGameState() {
   gameRequest.send();
   
   playerName = window.localStorage.getItem('playerName');
+  if (playerName) {
+    chatForm.style.display = "block"; 
+  }
 };
 
 function getGameListener() {

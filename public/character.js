@@ -55,27 +55,3 @@ function addCharacterFormItem(character) {
   li.removeAttribute("id");
   document.getElementById("character-choice-list").appendChild(li); 
 }
-
-/* CHOOSING CHARACTERS */
-
-var characterChoice = undefined;
-
-const charChoiceWrapper = document.getElementById('character-choice-message');
-const charChoiceMessage = document.getElementById('character-choice');
-
-function addChooseHandlers () {
-  const choices = document.getElementsByClassName('character-choice');
-  
-  for (var i = 0; i < choices.length; i++) {
-    console.log("add handler");
-    choices[i].addEventListener("click",(e) => {
-      console.log("clicked");
-      if (characterChoice) {
-      } else {
-        characterChoice = e.target.dataset.name;
-        socket.emit('character choice', playerName, characterChoice);
-        charChoiceMessage.innerText = characterChoice;
-      }
-   });
-  }
-}
