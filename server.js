@@ -53,7 +53,7 @@ app.get('/', function(request, response) {
   response.render('index.html');
 });
 // Player routes
-app.get('/start', function(request, response) {
+app.get('/name', function(request, response) {
   response.render('name.html');
 });
 app.post('/name', function(request, response) {
@@ -73,14 +73,27 @@ app.get('/add', function(request, response) {
   response.render('adding_characters.html');
 });
 app.post('/add', function(request, response) {
-  const characters = req
-  response.render('adding_characters.html');
+  const player = request.body.player;
+  const characters = request.body.characters.split(',');
+  console.log("Adding characters", player, characters);
+  if (player && characters) {
+    characters.forEach(x => addCharacter(player, characters));
+    
+    if (!gameState.started) {
+      if (gameCanStart()){
+        startGame();
+      }
+    }
+    
+    response.redirect('/game');
+  } else {
+    console.log("Something went wrong");
+    const msg = "Oops"
+    response.render('add.html');
+  }
 });
-app.get('/choose', function(request, response) {
+app.get('/start', function(request, response) {
   response.render('choosing_challenger.html');
-});
-app.get('/vote', function(request, response) {
-  response.render('voting_on_winner.html');
 });
 app.get('/results', function(request, response) {
   response.render('viewing_results.html');
@@ -126,12 +139,6 @@ function addCharacter(playerName, character) {
     
   if (player) {
     player.addCharacter(character);
-    
-    if (!gameState.started) {
-      if (gameCanStart()){
-        startGame();
-      }
-    }
   }
 }
 
