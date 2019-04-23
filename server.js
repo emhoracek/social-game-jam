@@ -95,15 +95,18 @@ app.get('/getDreams', function(request, response) {
 let { Player } = require('./player');
 let { Character } = require('./player');
 
-
-// OTHER CHAT APP STUFF 
-
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var players = [];
 var gameState = {players : []};
 gameState.started = false;
+
+// game state
+app.get('/game', function(request, response) {
+    response.send(JSON.stringify(gameState));
+});
+
 
 function addUser() {
   
