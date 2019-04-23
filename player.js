@@ -18,8 +18,9 @@ class Player {
 
 
 class Character {
-  constructor (name) {
+  constructor (name, source) {
     this.name = name;
+    this.source = source;
     this.points = 0;
   }
 

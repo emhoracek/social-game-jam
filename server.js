@@ -128,7 +128,6 @@ function addCharacter(playerName, character) {
       }
     }
   }
-
 }
 
 function gameCanStart() {
@@ -152,8 +151,6 @@ io.on('connection', function(socket){
   socket.on('chat message', function(player, message){
     console.log("message recieved", player, message);
     io.emit('chat message', player, message);
-  });
-  socket.on('new player', function(msg){
   });
   socket.on('new character', function(player, character){
     console.log("character added", player, character);
