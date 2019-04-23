@@ -19,7 +19,6 @@ function addPlayer(player){
   li.appendChild(document.createTextNode(player.name + ' joined'));
   document.getElementById("messages").appendChild(li);
   
-  
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(player.name + ' (' + player.points + ' pts)'));
   document.getElementById("players").appendChild(li);
@@ -62,7 +61,6 @@ function updateGameState() {
 };
 
 function getGameListener() {
-  console.log("helloooo");
   var gameState = JSON.parse(this.responseText);
 
   gameState.players.forEach( function(player) {
