@@ -22,6 +22,7 @@ function addPlayer(player){
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(player.name + ' (' + player.points + ' pts)'));
   document.getElementById("players").appendChild(li);
+  chatForm.style.display = "block";
 };
 
 /* CHATTING */
@@ -41,14 +42,6 @@ socket.on('chat message', function(name, msg){
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(name + ': ' + msg));
   document.getElementById("messages").appendChild(li);
-});
-
-/* STARTING THE GAME */
-
-socket.on('game started', function(challenge){
-  document.getElementById("game_state_message").innerText = 
-    "Which of your characters would be better at: " + challenge;
-  // addChooseHandlers();
 });
 
 /* UPDATING GAME STATE */

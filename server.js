@@ -77,7 +77,7 @@ app.post('/add', function(request, response) {
   const characters = request.body.characters.split(',');
   console.log("Adding characters", player, characters);
   if (player && characters) {
-    characters.forEach(x => addCharacter(player, characters));
+    characters.forEach(x => addCharacter(player, x));
     
     if (!gameState.started) {
       if (gameCanStart()){
@@ -85,7 +85,7 @@ app.post('/add', function(request, response) {
       }
     }
     
-    response.redirect('/game');
+    response.redirect('/start');
   } else {
     console.log("Something went wrong");
     const msg = "Oops"
