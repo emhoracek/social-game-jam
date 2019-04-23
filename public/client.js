@@ -12,16 +12,16 @@ var playerName = "";
 
 const noPlayers = document.getElementById("no_players_message");
 
-function addPlayer(msg){
+function addPlayer(player){
   noPlayers.style.display = "none";
   noMessages.style.display = "none";
   var li=document.createElement("li");
-  li.appendChild(document.createTextNode(msg + ' joined'));
+  li.appendChild(document.createTextNode(player.name + ' joined'));
   document.getElementById("messages").appendChild(li);
   
   
   var li=document.createElement("li");
-  li.appendChild(document.createTextNode(msg));
+  li.appendChild(document.createTextNode(player.name + ' (' + player.points + ' pts)'));
   document.getElementById("players").appendChild(li);
 };
 
@@ -49,7 +49,7 @@ socket.on('chat message', function(name, msg){
 socket.on('game started', function(challenge){
   document.getElementById("game_state_message").innerText = 
     "Which of your characters would be better at: " + challenge;
-  addChooseHandlers();
+  // addChooseHandlers();
 });
 
 /* UPDATING GAME STATE */
@@ -70,7 +70,7 @@ function getGameListener() {
   });
 };
 
-window.onload(updateGameState);
+window.addEventListener('load', updateGameState);
 
 /* AFTER CHOICE */
 
