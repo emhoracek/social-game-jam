@@ -68,7 +68,12 @@ app.post('/name', function(request, response) {
     response.render('name.html', { message: msg });
   }
 });
+// Adding characters routes
 app.get('/add', function(request, response) {
+  response.render('adding_characters.html');
+});
+app.post('/add', function(request, response) {
+  const characters = req
   response.render('adding_characters.html');
 });
 app.get('/choose', function(request, response) {
