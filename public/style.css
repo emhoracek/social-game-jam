@@ -18,6 +18,7 @@ aside {
   display: flex;
   flex-direction: column;
   width: 100%;
+  flex-shrink: 3;
 }
 
 div#main {
@@ -94,10 +95,10 @@ form#chat_form {
   padding: 0;
   display: flex;
   max-width: none;
+  justify-content: space-between;
 }
 
 #chat_form input {
-  width: auto;
   max-width: none;
 }
 
