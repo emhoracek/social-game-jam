@@ -1,4 +1,4 @@
-/* globals io */
+/* globals io, characters */
 
 // client-side js
 // run by the browser each time your view template referencing it is loaded
@@ -72,7 +72,7 @@ function getGameListener() {
     addPlayer(player);
     
     if (player.name == playerName) {
-     addCharacters(player.characters); 
+      console.log("characters", player.characters); 
     }
   });
 };
