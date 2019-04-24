@@ -1,8 +1,26 @@
 /* globals io, socket, playerName */
 
+console.log("game.js");
+
+function addCharacterFormItem2(character) {
+  var sample=document.getElementById("character-sample");
+  var li = sample.cloneNode(true);
+  li.innerText = character;
+  li.dataset.name = character;
+  li.removeAttribute("id");
+  document.getElementById("character-choice-list").appendChild(li); 
+}
+
 
 /* STARTING THE GAME */
-socket.on('game started', function(challenge){
+socket.on('game started', function(gameState, challenge){
+  console.log("playerName", playerName);
+  var player = gameState.players.find(x => x.name == playerName);
+  if (player) {
+    console.log("adding charcters", player.characters);
+    player.characters.forEach(x => addCharacterFormItem2(x.name));
+  }
+  
   document.getElementById("game_state_message").innerText = 
     "Which of your characters would be better at: " + challenge;
   // addChooseHandlers();

@@ -153,7 +153,7 @@ function startGame() {
   const element = Math.round(Math.random() * (challenges.length - 1))
   const challenge = challenges[element];
   
-  io.emit('game started', challenge);
+  io.emit('game started', gameState, challenge);
 }
 
 io.on('connection', function(socket){
