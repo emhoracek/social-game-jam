@@ -29,6 +29,7 @@ function addPlayer(player){
 const chatForm = document.getElementById("chat_form");
 const messageInput = document.getElementById("message_input");
 const noMessages = document.getElementById("no_messages_message");
+const chatMessages = document.getElementById("chat_messages");
 
 chatForm.onsubmit = function(event) {
   event.preventDefault();  
@@ -41,7 +42,8 @@ socket.on('chat message', function(name, msg){
   noMessages.style.display = "none";
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(name + ': ' + msg));
-  document.getElementById("chat_messages").appendChild(li);
+  chatMessages.appendChild(li);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
 });
 
 /* UPDATING GAME STATE */

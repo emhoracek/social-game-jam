@@ -10,20 +10,6 @@ body {
   margin: 2em;
 }
 
-main {
- display: flex; 
-}
-
-aside {
-  display: flex;
-  flex-direction: column;
-  width: 100px;
-}
-
-aside div {
- width: 100%; 
-}
-
 h1 {
   font-style: italic;
   color: #373fff;
