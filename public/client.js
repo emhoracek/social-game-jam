@@ -15,9 +15,12 @@ const noPlayers = document.getElementById("no_players_message");
 function addPlayer(player){
   noPlayers.style.display = "none";
   noMessages.style.display = "none";
-  var li=document.createElement("li");
-  li.appendChild(document.createTextNode(player.name + ' joined'));
-  document.getElementById("messages").appendChild(li);
+  var li=document.createElement("li")
+  var span = document.createElement("span");
+  span.appendChild(document.createTextNode(player.name + ' joined'));
+  span.style['font-style']="italic";
+  li.appendChild(span);
+  document.getElementById("chat_messages").appendChild(li);
   
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(player.name + ' (' + player.points + ' pts)'));
