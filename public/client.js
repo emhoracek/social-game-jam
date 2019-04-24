@@ -22,7 +22,7 @@ function addPlayer(player){
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(player.name + ' (' + player.points + ' pts)'));
   document.getElementById("players").appendChild(li);
-  chatForm.style.display = "block";
+  chatForm.style.display = "flex";
 };
 
 /* CHATTING */

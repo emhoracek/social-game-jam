@@ -93,9 +93,14 @@ form#chat_form {
   margin: 0;
   padding: 0;
   display: flex;
+  max-width: none;
 }
 
 #chat_form input {
   width: auto;
-  display: inline-flex;
+  max-width: none;
+}
+
+#message_input {
+ width: 100%; 
 }
