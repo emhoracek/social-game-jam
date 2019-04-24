@@ -11,17 +11,17 @@ body {
 }
 
 main {
- display: flex; 
+ display: flex;
 }
 
 aside {
   display: flex;
   flex-direction: column;
-  width: 100px;
+  width: 100%;
 }
 
-aside div {
- width: 100%; 
+div#main {
+  width: 100%;
 }
 
 h1 {
@@ -45,10 +45,6 @@ form {
   width: 100%;
   max-width: 340px;
   border-radius: 3px;
-}
-
-form#chat_form {
-  background-color: white;
 }
 
 input {
@@ -86,4 +82,21 @@ footer {
   margin-top: 50px;
   padding-top: 25px;
   border-top: 1px solid lightgrey;
+}
+
+#chat_messages {
+  border: 1px solid gray;
+}
+
+form#chat_form {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#chat_form input {
+  width: auto;
+  display: inline-flex;
+  flex-grow: 2;
 }
