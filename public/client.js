@@ -41,7 +41,7 @@ socket.on('chat message', function(name, msg){
   noMessages.style.display = "none";
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(name + ': ' + msg));
-  document.getElementById("messages").appendChild(li);
+  document.getElementById("chat_messages").appendChild(li);
 });
 
 /* UPDATING GAME STATE */

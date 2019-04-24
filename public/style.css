@@ -33,6 +33,10 @@ form {
   border-radius: 3px;
 }
 
+form#chat_form {
+  background-color: white;
+}
+
 input {
   display: block;
   margin-bottom: 10px;
