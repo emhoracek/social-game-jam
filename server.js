@@ -84,7 +84,6 @@ app.post('/add', function(request, response) {
         startGame();
       }
     }
-    
     response.redirect('/start');
   } else {
     console.log("Something went wrong");
@@ -93,7 +92,7 @@ app.post('/add', function(request, response) {
   }
 });
 app.get('/start', function(request, response) {
-  response.render('choosing_challenger.html');
+  response.render('game.html');
 });
 app.get('/results', function(request, response) {
   response.render('viewing_results.html');

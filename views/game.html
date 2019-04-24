@@ -10,20 +10,4 @@ Showdown!
 
 {% block main %}
   {% include "_character_deck.html" %}
-  <form id="all_characters_form" method="post" action="/add">
-    <input id="player_name_input" name="player" type="hidden" value="" />
-    <input id="all_characters_input" name="characters" type="hidden" value="" />
-    <input type="submit" value="Use this deck" />
-  </form>
-
-  <form id="character_form">
-    <h2>
-      Add a character
-    </h2>
-    <p id="characters_helper">
-      Add 6 more characters.
-    </p>
-    <input id="character_input" autocomplete="off" />
-    <input type="submit" value="Add Character" />
-  </form>
 {% endblock %}

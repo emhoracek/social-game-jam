@@ -15,6 +15,8 @@ const noPlayers = document.getElementById("no_players_message");
 function addPlayer(player){
   noPlayers.style.display = "none";
   noMessages.style.display = "none";
+  
+  // Add "player joined" message to chat
   var li=document.createElement("li")
   var span = document.createElement("span");
   span.appendChild(document.createTextNode(player.name + ' joined'));
@@ -22,6 +24,7 @@ function addPlayer(player){
   li.appendChild(span);
   document.getElementById("chat_messages").appendChild(li);
   
+  // Add player name to list of players
   var li=document.createElement("li");
   li.appendChild(document.createTextNode(player.name + ' (' + player.points + ' pts)'));
   document.getElementById("players").appendChild(li);
@@ -67,6 +70,10 @@ function getGameListener() {
 
   gameState.players.forEach( function(player) {
     addPlayer(player);
+    
+    if (player.name == playerName) {
+     addCharacters(player.characters); 
+    }
   });
 };
 
