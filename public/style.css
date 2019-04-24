@@ -98,5 +98,4 @@ form#chat_form {
 #chat_form input {
   width: auto;
   display: inline-flex;
-  flex-grow: 2;
 }
