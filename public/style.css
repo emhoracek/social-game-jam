@@ -88,6 +88,10 @@ footer {
 #chat_messages {
   border: 1px solid lightgrey;
   padding: 8px;
+  width: 100%;
+  max-width: none;
+  height: 150px;
+  overflow: auto;
 }
 
 form#chat_form {
@@ -101,8 +105,9 @@ form#chat_form {
 
 #chat_form input {
   max-width: none;
+  width: auto;
 }
 
 #message_input {
- width: 100%; 
+  margin-right: 0.5em;
 }

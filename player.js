@@ -3,6 +3,8 @@ class Player {
     this.name = name;
     this.characters = [];
     this.points = 0;
+    this.vote;
+    this.challenger;
   }
   
   addCharacter (character, source) {
@@ -14,6 +16,13 @@ class Player {
     return this.characters.reduce((acc, c) => acc + c.points);
   }
   
+  choose(character) {
+    this.challenger = character; 
+  }
+  
+  vote_for(character) {
+   this.vote = character; 
+  }
 };
 
 
