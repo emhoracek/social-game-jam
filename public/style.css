@@ -24,6 +24,9 @@ div#main {
   border: 1px solid pink;
   flex-grow: 3;
 }
+div#main p {
+  width: 100%;
+}
 
 h1 {
   font-style: italic;
@@ -93,8 +96,6 @@ form#chat_form {
 }
 
 #chat_form input {
-  max-width: none;
-  width: auto;
 }
 
 #message_input {
