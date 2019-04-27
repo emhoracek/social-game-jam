@@ -34,7 +34,6 @@ function startGame(gameState) {
 /* CHOOSING A CHARACTER */
 const characterForm = document.getElementById("character_form");
 const characterInput = document.getElementById("character_input");
-const noCharacters = document.getElementById("no_characters_message");
 const characterMessage = document.getElementById("characters_helper");
 
 var characterChoice = undefined;

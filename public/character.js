@@ -11,7 +11,6 @@ const characterForm = document.getElementById("character_form");
 const characterInput = document.getElementById("character_input");
 const sourceInput = document.getElementById("source_input");
 const imageInput = document.getElementById("image_input");
-const noCharacters = document.getElementById("no_characters_message");
 const characterMessage = document.getElementById("characters_helper");
 
 const characterName = document.getElementById("character_name");
@@ -64,7 +63,6 @@ characterInput.addEventListener('input', searchGiphy);
 sourceInput.addEventListener('input', searchGiphy);
 
 function updateCharacterFormAndMessage() {
-  noCharacters.style.display = "none";
   const numCharacters = characters.length;
   
   if (numCharacters > '5') {
