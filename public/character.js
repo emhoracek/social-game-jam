@@ -49,10 +49,15 @@ characterForm.onsubmit = function(event) {
   characterInput.value="";
 }
 
+var inprogress = false;
+
 function searchGiphy() {
  characterName.innerText = characterInput.value;
  characterSource.innerText = sourceInput.value;
- socket.emit('character update', characterInput.value, sourceInput.value);
+  if (!inprogress) {
+    socket.emit('character update', characterInput.value, sourceInput.value);
+    inprogress = true;
+  }
 }
 
 characterInput.addEventListener('input', searchGiphy);
@@ -96,7 +101,6 @@ function selectImage(e) {
 var giphy = document.getElementById("giphy");
 
 socket.on('image search', function (images) {
-  console.log(images);
   if (giphy.children[0]) {
     console.log(giphy.children[0]);
   giphy.removeChild(giphy.children[0]);
@@ -110,4 +114,5 @@ socket.on('image search', function (images) {
       container.appendChild(img);
   });
   giphy.appendChild(container);
+  inprogress = false;
 });

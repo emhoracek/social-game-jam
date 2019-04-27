@@ -30,11 +30,16 @@ class Player {
 console.log("hello?");
 
 class Character {
-  constructor (name, source) {
+  constructor (name, source, image_id) {
     this.name = name;
     this.source = source;
     this.image = "/loading.gif";
+    this.challenges = [];
     this.points = 0;
+  }
+  
+  addChallenge(challenge) {
+    this.challenges.push(challenge);
   }
 
   addPoint() {
