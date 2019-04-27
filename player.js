@@ -7,8 +7,8 @@ class Player {
     this.challenger;
   }
   
-  addCharacter (character, source) {
-    this.characters.push(new Character(character, source));
+  addCharacter (character) {
+    this.characters.push(new Character(character.name, character.source, character.image_id));
     return this;
   }
   
@@ -33,7 +33,7 @@ class Character {
   constructor (name, source, image_id) {
     this.name = name;
     this.source = source;
-    this.image = "/loading.gif";
+    this.image = "https://media0.giphy.com/media/" + image_id + "/giphy-downsized.gif";
     this.challenges = [];
     this.points = 0;
   }

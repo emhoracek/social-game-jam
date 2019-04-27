@@ -117,11 +117,29 @@ var io = require('socket.io')(http);
 
 var players = [];
 var gameState = {players : []};
-//var libby = new Player('Libby');
-//var characters = ['Sam', 'Dean', 'Gramsci', 'Emma', 'Octavia', 'Anna']
-//characters.forEach(x => libby.addCharacter(x) );
-//gameState.players.push(libby)
-gameState.started = false;
+var libby = new Player('Libby');
+var characters = [
+  { name: 'Sam',
+    source: 'Supernatural',
+    image_id: '12ERNB8GNsHjEY' },
+  { name: 'Dean',
+    source: 'Supernatural',
+    image_id: 'rgT0k7ofRRcas' },
+  { name: 'Castiel',
+    source: 'Supernatural',
+    image_id: 'OKFsnjomYmMCY' },
+  { name: 'Anna',
+    source: 'Supernatural',
+    image_id: 'USLtG7IVK8Aik' },
+  { name: 'John',
+    source: 'Supernatural',
+    image_id: '6pNmJvO9LB4Gs' },
+  { name: 'Chuck',
+    source: 'Supernatural',
+    image_id: '26gJAoA2k7umfFHXy' } ];
+characters.forEach(x => libby.addCharacter(x) );
+gameState.players.push(libby)
+gameState.started = true;
 
 
 // game state
