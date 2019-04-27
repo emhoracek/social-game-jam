@@ -63,3 +63,19 @@ function addCharacterFormItem(character) {
   li.removeAttribute("id");
   document.getElementById("character-choice-list").appendChild(li); 
 }
+
+var giphy = document.getElementById("giphy");
+
+socket.on('image search', function (images) {
+  console.log(images);
+  if (giphy.children) {
+  giphy.removeChild(giphy.children[0]);
+  };
+  var container = document.createElement("div");
+  images.forEach(x => {
+      var img = document.createElement("img");
+      img.setAttribute("src", x.gif);
+      container.appendChild(img);
+  });
+  giphy.appendChild(container);
+});

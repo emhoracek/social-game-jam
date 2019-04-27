@@ -6,7 +6,7 @@ function giphySearch(character, source) {
   console.log(search);
   var images = []
   
-  giphy.search(search).then(function (res) {
+  return giphy.search(search).then(function (res) {
     //console.log(res);
     res.data.forEach (x => {
       const image = {
