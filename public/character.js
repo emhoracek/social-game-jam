@@ -68,7 +68,8 @@ var giphy = document.getElementById("giphy");
 
 socket.on('image search', function (images) {
   console.log(images);
-  if (giphy.children) {
+  if (giphy.children[0]) {
+    console.log(giphy.children[0]);
   giphy.removeChild(giphy.children[0]);
   };
   var container = document.createElement("div");

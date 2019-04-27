@@ -104,3 +104,8 @@ form#chat_form {
 #message_input {
   margin-right: 0.5em;
 }
+
+#giphy {
+  height: 300px;
+  overflow: auto;
+}
