@@ -75,6 +75,10 @@ function getGameListener() {
       console.log("characters", player.characters); 
     }
   });
+  
+  if (gameState.started) {
+    startGame(gameState); 
+  }
 };
 
 window.addEventListener('load', updateGameState);

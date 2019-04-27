@@ -14,6 +14,11 @@ function addCharacterFormItem2(character) {
 
 /* STARTING THE GAME */
 socket.on('game started', function(gameState, challenge){
+  startGame(gameState, challenge);
+});
+
+
+function startGame(gameState) {
   console.log("playerName", playerName);
   var player = gameState.players.find(x => x.name == playerName);
   if (player) {
@@ -24,8 +29,7 @@ socket.on('game started', function(gameState, challenge){
   document.getElementById("game_state_message").innerText = 
     "Which of your characters would be better at: " + challenge;
   // addChooseHandlers();
-});
-
+}
 
 /* CHOOSING A CHARACTER */
 const characterForm = document.getElementById("character_form");

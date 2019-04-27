@@ -11,7 +11,8 @@ body {
 }
 
 main {
- display: flex;
+  display: flex;
+  flex-wrap: wrap-reverse;
 }
 
 aside {
@@ -22,6 +23,8 @@ aside {
 
 div#main {
   border: 1px solid pink;
+  padding: 1em;
+  padding-top: 0;
   flex-grow: 3;
 }
 div#main p {
