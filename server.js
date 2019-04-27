@@ -158,6 +158,9 @@ function startGame() {
   io.emit('game started', gameState);
 }
 
+
+let giphy = require('./giphy');
+
 io.on('connection', function(socket){
   console.log('user connected');
   io.emit('user added', players);
@@ -172,6 +175,11 @@ io.on('connection', function(socket){
   });
   socket.on('character choice', function(player, character) {
     console.log('character chosen', player ,character);
+  });
+  socket.on('character update', function(character, source) {
+    giphy.giphySearch(character,source).then(res => {
+       io.emit('image search', res);
+    });
   });
   socket.on('disconnect', function(){
     console.log('user disconnected');
@@ -210,7 +218,3 @@ const challenges = [
   ];
 
 //startGame();
-
-// Giphy
-
-let giphy = require('./giphy');
