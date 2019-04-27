@@ -100,6 +100,9 @@ function selectImage(e) {
 var giphy = document.getElementById("giphy");
 
 socket.on('image search', function (images) {
+  if (giphy.children[0]) {
+  giphy.removeChild(giphy.children[0]);
+  };
   var container = document.createElement("div");
   images.forEach(x => {
       var img = document.createElement("img");
@@ -109,5 +112,7 @@ socket.on('image search', function (images) {
       container.appendChild(img);
   });
   giphy.appendChild(container);
+  setTimeout(() => {
   inprogress = false;
+  }, 1000);
 });
