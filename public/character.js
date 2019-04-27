@@ -10,7 +10,7 @@ playerNameInput.value = window.localStorage.getItem("playerName");
 const characterForm = document.getElementById("character_form");
 const characterInput = document.getElementById("character_input");
 const sourceInput = document.getElementById("source_input");
-const imageInput = document.getElementById("source_input");
+const imageInput = document.getElementById("image_input");
 const noCharacters = document.getElementById("no_characters_message");
 const characterMessage = document.getElementById("characters_helper");
 
@@ -31,11 +31,13 @@ class Character {
 characterForm.onsubmit = function(event) {
   event.preventDefault();
   
-  const characterName = characterInput.value;
-  const characterSource = sourceInput.value;
-  const characterImage = imageInput.value;
+  const name = characterInput.value;
+  const source = sourceInput.value;
+  const image = imageInput.value;
   
-  characters.push(new Character);
+  const character = new Character(name, source, image);
+  
+  characters.push(character);
   allCharactersInput.value = characters;
 
   addCharacterFormItem(character);
@@ -48,7 +50,6 @@ characterForm.onsubmit = function(event) {
 }
 
 function searchGiphy() {
-  console.log("change");
  characterName.innerText = characterInput.value;
  characterSource.innerText = sourceInput.value;
  socket.emit('character update', characterInput.value, sourceInput.value);
@@ -76,13 +77,15 @@ function addCharacterFormItem(character) {
   var sample=document.getElementById("character-sample");
   var li = sample.cloneNode(true);
   li.innerText = character;
-  li.dataset.name = character;
+  li.dataset.name = character.name;
+  li.dataset.source = character.name;
+  li.dataset.image = character.image;
   li.removeAttribute("id");
   document.getElementById("character-choice-list").appendChild(li); 
 }
 
 function selectImage(e) {
-  //var imageid = e.target.dataset.imageid;
+  imageInput.value = e.target.dataset.imageid;
   var imagesrc = e.target.getAttribute("src");
   
   var card_image = document.getElementById("card_image");
@@ -102,6 +105,7 @@ socket.on('image search', function (images) {
   images.forEach(x => {
       var img = document.createElement("img");
       img.setAttribute("src", x.gif);
+      img.dataset.imageid("src", x.id);
       img.addEventListener("click", selectImage);
       container.appendChild(img);
   });
