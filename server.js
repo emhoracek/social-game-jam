@@ -211,3 +211,6 @@ const challenges = [
 
 //startGame();
 
+// Giphy
+
+let giphy = require('./giphy');
