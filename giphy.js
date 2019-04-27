@@ -11,7 +11,8 @@ function giphySearch(character, source) {
     res.data.forEach (x => {
       const image = {
         'still': x.images.downsized_still.url,
-        'gif': x.images.downsized.url
+        'gif': x.images.downsized.url,
+        'id': x.id
       }
       images.push(image);
     });
