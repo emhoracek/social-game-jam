@@ -37,8 +37,8 @@ function searchGiphy() {
  socket.emit('character update', characterInput.value, sourceInput.value);
 }
 
-characterInput.addEventHandler('input', searchGiphy);
-sourceInput.addEventHandler('input', searchGiphy);
+characterInput.addEventListener('input', searchGiphy);
+sourceInput.addEventListener('input', searchGiphy);
 
 function updateCharacterFormAndMessage() {
   noCharacters.style.display = "none";

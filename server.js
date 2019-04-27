@@ -159,7 +159,7 @@ function startGame() {
 }
 
 
-let giphy = require('./giphy');
+let { giphySearch } = require('./giphy');
 
 io.on('connection', function(socket){
   console.log('user connected');
@@ -177,7 +177,7 @@ io.on('connection', function(socket){
     console.log('character chosen', player ,character);
   });
   socket.on('character update', function(character, source) {
-    giphy.giphySearch(character,source).then(res => {
+    giphySearch(character,source).then(res => {
        io.emit('image search', res);
     });
   });

@@ -22,3 +22,5 @@ function giphySearch(character, source) {
     return images;
   });
 }
+
+module.exports = { giphySearch: giphySearch };
