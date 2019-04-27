@@ -1,4 +1,4 @@
-/* globals io, characters */
+/* globals io, characters, startGame */
 
 // client-side js
 // run by the browser each time your view template referencing it is loaded
@@ -76,8 +76,8 @@ function getGameListener() {
     }
   });
   
-  if (gameState.started) {
-    //startGame(gameState); 
+  if (gameState.started && startGame) {
+    startGame(gameState); 
   }
 };
 

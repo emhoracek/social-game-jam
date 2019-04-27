@@ -139,7 +139,7 @@ var characters = [
     image_id: '26gJAoA2k7umfFHXy' } ];
 characters.forEach(x => libby.addCharacter(x) );
 gameState.players.push(libby)
-gameState.started = true;
+gameState.started = false;
 
 
 // game state
@@ -235,4 +235,4 @@ const challenges = [
   "spelling bee"
   ];
 
-//startGame();
+startGame();
