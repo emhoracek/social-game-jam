@@ -211,11 +211,3 @@ const challenges = [
 
 //startGame();
 
-
-// GIPHY
-var giphy = require('giphy-api')(process.env.GIPHY_API_KEY);
-
-giphy.search('dean supernatural').then(function (res) {
-  c
-    // Res contains gif data!
-});
