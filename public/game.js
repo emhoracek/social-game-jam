@@ -49,16 +49,29 @@ function addChooseHandlers () {
     console.log("add handler");
     choices[i].addEventListener("click",(e) => {
       console.log("clicked");
-      if (characterChoice) {
-        console.log(characterChoice);
-      } else {
-        characterChoice = e.target.dataset.name;
-        e.target.style.border = "1px solid magenta";
-        console.log("chose", characterChoice);
-        socket.emit('character choice', playerName, characterChoice);
-        charChoiceMessage.innerText = characterChoice;
-      }
+      unselectChoices(choices);
+      selectChoice(e.target);
+      characterChoice = e.target.dataset.name;
    });
   }
 }
 
+function chooseChallenger () {
+  socket.emit('character choice', playerName, characterChoice);
+  charChoiceMessage.innerText = characterChoice; 
+  console.log("chose", characterChoice);
+}
+
+
+function unselectChoices (choices) {
+  for (var i = 0; i < choices.length; i++) {
+    choices[i].style.border = "1px solid black";
+    choices[i].style.background = "lightgrey";
+  }
+}
+
+
+function selectChoice (choice) {
+  choice.style.border = "1px solid magenta";
+  choice.style.background = "pink";
+}
