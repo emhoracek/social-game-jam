@@ -117,17 +117,17 @@ var io = require('socket.io')(http);
 
 var players = [];
 var gameState = {players : []};
+var libby = new Player('Libby');
+var characters = ['Sam', 'Dean', 'Gramsci', 'Emma', 'Octavia', 'Anna']
+characters.forEach(x => libby.addCharacter(x) );
+gameState.players.push(libby)
 gameState.started = false;
+
 
 // game state
 app.get('/game', function(request, response) {
     response.send(JSON.stringify(gameState));
 });
-
-
-function addUser() {
-  
-}
 
 function addPlayer(name){
   gameState.players.push(new Player(name));
@@ -152,8 +152,10 @@ function startGame() {
   console.log("starting game");
   const element = Math.round(Math.random() * (challenges.length - 1))
   const challenge = challenges[element];
+  gameState.started = true;
+  gameState.challenge = challenge;
   
-  io.emit('game started', gameState, challenge);
+  io.emit('game started', gameState);
 }
 
 io.on('connection', function(socket){
@@ -206,3 +208,5 @@ const challenges = [
   "philosophy",
   "spelling bee"
   ];
+
+startGame();

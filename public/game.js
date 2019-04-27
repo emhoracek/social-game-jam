@@ -13,8 +13,8 @@ function addCharacterFormItem2(character) {
 
 
 /* STARTING THE GAME */
-socket.on('game started', function(gameState, challenge){
-  startGame(gameState, challenge);
+socket.on('game started', function(gameState){
+  startGame(gameState);
 });
 
 
@@ -27,8 +27,8 @@ function startGame(gameState) {
   }
   
   document.getElementById("game_state_message").innerText = 
-    "Which of your characters would be better at: " + challenge;
-  // addChooseHandlers();
+    "Which of your characters would be better at: " + gameState.challenge;
+  addChooseHandlers();
 }
 
 /* CHOOSING A CHARACTER */
@@ -50,7 +50,9 @@ function addChooseHandlers () {
     choices[i].addEventListener("click",(e) => {
       console.log("clicked");
       if (characterChoice) {
+        console.log(characterChoice);
       } else {
+        console.log("chose", charact
         characterChoice = e.target.dataset.name;
         socket.emit('character choice', playerName, characterChoice);
         charChoiceMessage.innerText = characterChoice;
