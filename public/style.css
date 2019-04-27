@@ -143,3 +143,5 @@ form#chat_form {
   align-items: center;
   justify-content: space-around;
 }
+
+#card_image { width: 100% }

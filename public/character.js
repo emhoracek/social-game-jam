@@ -13,6 +13,10 @@ const sourceInput = document.getElementById("source_input");
 const noCharacters = document.getElementById("no_characters_message");
 const characterMessage = document.getElementById("characters_helper");
 
+
+const characterName = document.getElementById("character_name");
+const characterSource = document.getElementById("character_source");
+
 var characters = [];
 
 characterForm.onsubmit = function(event) {
@@ -34,6 +38,8 @@ characterForm.onsubmit = function(event) {
 
 function searchGiphy() {
   console.log("change");
+ characterName.innerText = characterInput.value;
+ characterSource.innerText = sourceInput.value;
  socket.emit('character update', characterInput.value, sourceInput.value);
 }
 
@@ -65,11 +71,12 @@ function addCharacterFormItem(character) {
 }
 
 function selectImage(e) {
-  var imageid = e.target.dataset.imageid;
+  //var imageid = e.target.dataset.imageid;
+  var imagesrc = e.target.getAttribute("src");
   
   var card_image = document.getElementById("card_image");
   
-  card
+  card_image.setAttribute("src", imagesrc);
 }
 
 var giphy = document.getElementById("giphy");
@@ -84,6 +91,7 @@ socket.on('image search', function (images) {
   images.forEach(x => {
       var img = document.createElement("img");
       img.setAttribute("src", x.gif);
+      img.addEventListener("click", selectImage);
       container.appendChild(img);
   });
   giphy.appendChild(container);
