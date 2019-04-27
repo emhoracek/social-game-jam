@@ -7,7 +7,6 @@
 
 body {
   font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-  margin: 2em;
 }
 
 main {
@@ -22,9 +21,6 @@ aside {
 }
 
 div#main {
-  border: 1px solid pink;
-  padding: 1em;
-  padding-top: 0;
   flex-grow: 3;
 }
 div#main p {
@@ -105,8 +101,10 @@ form#chat_form {
   margin-right: 0.5em;
 }
 
-#container { display: flex }
-
+#container { 
+  display: flex; 
+  flex-wrap: wrap; 
+}
 
 #new_characters { width: 100% }
 
