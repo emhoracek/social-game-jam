@@ -69,6 +69,7 @@ function updateCharacterFormAndMessage() {
   
   if (numCharacters > '5') {
     characterForm.style.display = "none";
+    allCharactersForm.style.display = "block";
     return ''
   }
   if (numCharacters == '5') {
