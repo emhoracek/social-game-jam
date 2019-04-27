@@ -74,7 +74,7 @@ app.get('/add', function(request, response) {
 });
 app.post('/add', function(request, response) {
   const player = request.body.player;
-  const characters = request.body.characters.split(',');
+  const characters = JSON.parse(request.body.characters);
   console.log("Adding characters", player, characters);
   if (player && characters) {
     characters.forEach(x => addCharacter(player, x));
@@ -117,10 +117,10 @@ var io = require('socket.io')(http);
 
 var players = [];
 var gameState = {players : []};
-var libby = new Player('Libby');
-var characters = ['Sam', 'Dean', 'Gramsci', 'Emma', 'Octavia', 'Anna']
-characters.forEach(x => libby.addCharacter(x) );
-gameState.players.push(libby)
+//var libby = new Player('Libby');
+//var characters = ['Sam', 'Dean', 'Gramsci', 'Emma', 'Octavia', 'Anna']
+//characters.forEach(x => libby.addCharacter(x) );
+//gameState.players.push(libby)
 gameState.started = false;
 
 
