@@ -9,6 +9,7 @@ playerNameInput.value = window.localStorage.getItem("playerName");
 
 const characterForm = document.getElementById("character_form");
 const characterInput = document.getElementById("character_input");
+const characterInput = document.getElementById("character_input");
 const noCharacters = document.getElementById("no_characters_message");
 const characterMessage = document.getElementById("characters_helper");
 
