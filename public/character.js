@@ -10,21 +10,32 @@ playerNameInput.value = window.localStorage.getItem("playerName");
 const characterForm = document.getElementById("character_form");
 const characterInput = document.getElementById("character_input");
 const sourceInput = document.getElementById("source_input");
+const imageInput = document.getElementById("source_input");
 const noCharacters = document.getElementById("no_characters_message");
 const characterMessage = document.getElementById("characters_helper");
-
 
 const characterName = document.getElementById("character_name");
 const characterSource = document.getElementById("character_source");
 
 var characters = [];
 
+class Character {
+  constructor (name, source, image_id) {
+    this.name = name;
+    this.source = source;
+    this.image_id = image_id;
+  }
+}
+
+
 characterForm.onsubmit = function(event) {
   event.preventDefault();
   
-  const character = characterInput.value;
+  const characterName = characterInput.value;
+  const characterSource = sourceInput.value;
+  const characterImage = imageInput.value;
   
-  characters.push(character);
+  characters.push(new Character);
   allCharactersInput.value = characters;
 
   addCharacterFormItem(character);
