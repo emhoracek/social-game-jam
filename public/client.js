@@ -77,7 +77,7 @@ function getGameListener() {
   });
   
   if (gameState.started) {
-    startGame(gameState); 
+    //startGame(gameState); 
   }
 };
 
