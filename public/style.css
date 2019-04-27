@@ -7,6 +7,8 @@
 
 body {
   font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  margin:0;
+  padding:10px;
 }
 
 main {
