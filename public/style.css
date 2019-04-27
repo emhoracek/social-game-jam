@@ -110,7 +110,12 @@ form#chat_form {
 
 #new_characters { width: 100% }
 
-#card_preview { width: 100%; display: flex }
+#card_preview { 
+  width: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
 
 #giphy {
   height: 300px;
@@ -123,4 +128,8 @@ form#chat_form {
   box-shadow: 10px 5px 5px grey;
   width: 300px;
   height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
