@@ -108,6 +108,8 @@ form#chat_form {
 
 #new_characters { width: 100% }
 
+#new_characters input { width: 100% }
+
 #card_preview { 
   width: 100%; 
   display: flex;
@@ -118,6 +120,16 @@ form#chat_form {
 #giphy {
   height: 300px;
   overflow: auto;
+}
+
+#giphy div {
+ display:flex;
+  flex-wrap: wrap;
+}
+
+#giphy img {
+ width: 33%;
+  align-self: center;
 }
 
 #card {

@@ -64,6 +64,14 @@ function addCharacterFormItem(character) {
   document.getElementById("character-choice-list").appendChild(li); 
 }
 
+function selectImage(e) {
+  var imageid = e.target.dataset.imageid;
+  
+  var card_image = document.getElementById("card_image");
+  
+  card
+}
+
 var giphy = document.getElementById("giphy");
 
 socket.on('image search', function (images) {
