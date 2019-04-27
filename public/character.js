@@ -9,7 +9,7 @@ playerNameInput.value = window.localStorage.getItem("playerName");
 
 const characterForm = document.getElementById("character_form");
 const characterInput = document.getElementById("character_input");
-const characterInput = document.getElementById("character_input");
+const sourceInput = document.getElementById("source_input");
 const noCharacters = document.getElementById("no_characters_message");
 const characterMessage = document.getElementById("characters_helper");
 
@@ -31,6 +31,14 @@ characterForm.onsubmit = function(event) {
   
   characterInput.value="";
 }
+
+function searchGiphy() {
+  console.log("change");
+ socket.emit('character update', characterInput.value, sourceInput.value);
+}
+
+characterInput.addEventHandler('input', searchGiphy);
+sourceInput.addEventHandler('input', searchGiphy);
 
 function updateCharacterFormAndMessage() {
   noCharacters.style.display = "none";
