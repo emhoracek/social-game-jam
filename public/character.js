@@ -38,7 +38,7 @@ characterForm.onsubmit = function(event) {
   const character = new Character(name, source, image);
   
   characters.push(character);
-  allCharactersInput.value = characters;
+  allCharactersInput.value = JSON.stringify(characters);
 
   addCharacterFormItem(character);
 
@@ -76,16 +76,16 @@ function updateCharacterFormAndMessage() {
 function addCharacterFormItem(character) {
   var sample=document.getElementById("character-sample");
   var li = sample.cloneNode(true);
-  li.innerText = character;
+  li.innerText = character.name;
   li.dataset.name = character.name;
   li.dataset.source = character.name;
-  li.dataset.image = character.image;
+  li.dataset.image_id = character.image_id;
   li.removeAttribute("id");
   document.getElementById("character-choice-list").appendChild(li); 
 }
 
 function selectImage(e) {
-  imageInput.value = e.target.dataset.imageid;
+  imageInput.value = e.target.dataset.image_id;
   var imagesrc = e.target.getAttribute("src");
   
   var card_image = document.getElementById("card_image");
@@ -105,7 +105,7 @@ socket.on('image search', function (images) {
   images.forEach(x => {
       var img = document.createElement("img");
       img.setAttribute("src", x.gif);
-      img.dataset.imageid("src", x.id);
+      img.dataset.image_id = x.id;
       img.addEventListener("click", selectImage);
       container.appendChild(img);
   });
