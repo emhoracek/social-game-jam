@@ -52,8 +52,9 @@ function addChooseHandlers () {
       if (characterChoice) {
         console.log(characterChoice);
       } else {
-        console.log("chose", charact
         characterChoice = e.target.dataset.name;
+        e.target.style.border = "1px solid magenta";
+        console.log("chose", characterChoice);
         socket.emit('character choice', playerName, characterChoice);
         charChoiceMessage.innerText = characterChoice;
       }
