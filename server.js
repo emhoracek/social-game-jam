@@ -117,7 +117,7 @@ var io = require('socket.io')(http);
 
 var players = [];
 var gameState = {players : []};
-var libby = new Player('Libby');
+//var libby = new Player('Libby');
 var characters = [
   { name: 'Sam',
     source: 'Supernatural',
@@ -137,8 +137,8 @@ var characters = [
   { name: 'Chuck',
     source: 'Supernatural',
     image_id: '26gJAoA2k7umfFHXy' } ];
-characters.forEach(x => libby.addCharacter(x) );
-gameState.players.push(libby)
+//characters.forEach(x => libby.addCharacter(x) );
+//gameState.players.push(libby)
 gameState.started = false;
 
 

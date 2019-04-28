@@ -80,13 +80,16 @@ function selectChoice (choice) {
 }
 
 socket.on('challengers ready', function (gameState) {
-  const cardTemplate = document.getElementById('card-sample');
+  const cardTemplate = document.getElementById('sample_card');
   const cards = document.getElementById('cards');
   gameState.players.forEach(x => {
     console.log(x.name, 'chose', x.challenger.name);
     const card = cardTemplate.cloneNode(true);
     card.style.display="block";
     card.removeAttribute("id");
+    card.getElementsByClassName("character_name")[0].innerText = x.challenger.name;
+    card.getElementsByClassName("character_source")[0].innerText = x.challenger.source;
+    card.getElementsByClassName("card_image")[0].setAttribute("src", x.challenger.image);
     cards.appendChild(card);
   });
 });
