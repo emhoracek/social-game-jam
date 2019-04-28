@@ -143,7 +143,7 @@ function addPlayer(name){
 };
 
 function addCharacter(playerName, character) {
-  const player = gameState.players.find(x => x.name == playerName);
+  const player = gameState.players.find(x => x.name === playerName);
     
   if (player) {
     player.addCharacter(character);

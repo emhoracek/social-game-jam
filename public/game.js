@@ -35,7 +35,6 @@ var characterChoice = undefined;
 
 const charChoiceMessage = document.getElementById('character-choice');
 
-
 const charChoiceButtonWrapper = document.getElementById('character-choice-button-wrapper');
 const charChoiceButton = document.getElementById('character-choice-button');
 
