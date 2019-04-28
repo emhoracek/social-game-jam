@@ -125,18 +125,9 @@ var characters = [
   { name: 'Dean',
     source: 'Supernatural',
     image_id: 'rgT0k7ofRRcas' },
-  { name: 'Castiel',
-    source: 'Supernatural',
-    image_id: 'OKFsnjomYmMCY' },
   { name: 'Anna',
     source: 'Supernatural',
-    image_id: 'USLtG7IVK8Aik' },
-  { name: 'John',
-    source: 'Supernatural',
-    image_id: '6pNmJvO9LB4Gs' },
-  { name: 'Chuck',
-    source: 'Supernatural',
-    image_id: '26gJAoA2k7umfFHXy' } ];
+    image_id: 'USLtG7IVK8Aik' } ];
 //characters.forEach(x => libby.addCharacter(x) );
 //gameState.players.push(libby)
 gameState.started = false;
@@ -162,7 +153,7 @@ function addCharacter(playerName, character) {
 function gameCanStart() {
   console.log("can game start");
   console.log(gameState.players);
-  var result= gameState.players.every(x => x.characters.length > 5);
+  var result = gameState.players.every(x => x.characters.length > 2);
   return result;
 }
 

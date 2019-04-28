@@ -65,16 +65,16 @@ sourceInput.addEventListener('input', searchGiphy);
 function updateCharacterFormAndMessage() {
   const numCharacters = characters.length;
   
-  if (numCharacters > '5') {
+  if (numCharacters > '2') {
     characterForm.style.display = "none";
     allCharactersForm.style.display = "block";
     return ''
   }
-  if (numCharacters == '5') {
+  if (numCharacters == '2') {
     return "Please add one more character";
   }
   
-  return "Please add " + (6 - numCharacters) + " more characters.";
+  return "Please add " + (3 - numCharacters) + " more characters.";
 }
 
 function addCharacterFormItem(character) {
