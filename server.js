@@ -7,9 +7,6 @@ var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
-
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
@@ -211,13 +208,13 @@ http.listen(3000, function(){
 
 
 const challenges = [
-  "babysitting",
-  "fist-fighting",
-  "law",
-  "crime",
-  "visual art",
-  "housekeeping",
-  "architecture",
+  "Who would be best at babysitting?",
+  "Who would win in a fist-fight?",
+  "Who has greatest command of the law?",
+  "Who is the greatest criminal?",
+  "Who makes the best visual art?",
+  "Who is best at housekeeping?",
+  "Who is the best at architecture",
   "no-holds-barred combat",
   "piloting",
   "triathalon",
