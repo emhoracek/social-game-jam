@@ -117,7 +117,7 @@ var io = require('socket.io')(http);
 
 var players = [];
 var gameState = {players : []};
-//var libby = new Player('Libby');
+var libby = new Player('Libby');
 var characters = [
   { name: 'Sam',
     source: 'Supernatural',
@@ -137,8 +137,8 @@ var characters = [
   { name: 'Chuck',
     source: 'Supernatural',
     image_id: '26gJAoA2k7umfFHXy' } ];
-//characters.forEach(x => libby.addCharacter(x) );
-//gameState.players.push(libby)
+characters.forEach(x => libby.addCharacter(x) );
+gameState.players.push(libby)
 gameState.started = false;
 
 
@@ -191,8 +191,12 @@ io.on('connection', function(socket){
     addCharacter(player, character);
     io.emit('character added', player, character);
   });
-  socket.on('character choice', function(player, character) {
+  socket.on('character choice', function(playerName, character) {
     console.log('character chosen', player ,character);
+    const player = gameState.players.find((x) => x.name == playerName);
+    if (player) {
+      player.choose(character);
+    };
   });
   socket.on('character update', function(character, source) {
     giphySearch(character,source).then(res => {

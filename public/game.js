@@ -41,23 +41,28 @@ var characterChoice = undefined;
 const charChoiceWrapper = document.getElementById('character-choice-message');
 const charChoiceMessage = document.getElementById('character-choice');
 
+
+const charChoiceButtonWrapper = document.getElementById('character-choice-button-wrapper');
+const charChoiceButton = document.getElementById('character-choice-button');
+
 function addChooseHandlers () {
   const choices = document.getElementsByClassName('character-choice');
   
   for (var i = 0; i < choices.length; i++) {
-    console.log("add handler");
     choices[i].addEventListener("click",(e) => {
-      console.log("clicked");
       unselectChoices(choices);
       selectChoice(e.target);
       characterChoice = e.target.dataset.name;
    });
   }
+  charChoiceButtonWrapper.style.display = "block";
+  charChoiceButton.addEventListener("click", (e) => {
+    chooseChallenger();
+  });
 }
 
 function chooseChallenger () {
   socket.emit('character choice', playerName, characterChoice);
-  charChoiceMessage.innerText = characterChoice; 
   console.log("chose", characterChoice);
 }
 

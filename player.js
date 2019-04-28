@@ -16,7 +16,8 @@ class Player {
     return this.characters.reduce((acc, c) => acc + c.points);
   }
   
-  choose(character) {
+  choose(characterName) {
+    const character = this.characters.find(x => x.name == characterName); 
     this.challenger = character; 
   }
   
