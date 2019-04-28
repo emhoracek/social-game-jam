@@ -10,8 +10,7 @@ function addCharacterFormItem2(character) {
 }
 
 function startGame(gameState) {
-  console.log("playerName", playerName);
-  var player = gameState.players.find(x => x.name == playerName);
+  var player = gameState.players.find(x => x.name === playerName);
   if (player) {
     console.log("adding characters", player.characters);
     player.characters.forEach(x => addCharacterFormItem2(x.name));
