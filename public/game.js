@@ -38,7 +38,6 @@ const characterMessage = document.getElementById("characters_helper");
 
 var characterChoice = undefined;
 
-const charChoiceWrapper = document.getElementById('character-choice-message');
 const charChoiceMessage = document.getElementById('character-choice');
 
 
@@ -81,7 +80,13 @@ function selectChoice (choice) {
 }
 
 socket.on('challengers ready', function (gameState) {
+  const cardTemplate = document.getElementById('card-sample');
+  const cards = document.getElementById('cards');
   gameState.players.forEach(x => {
-    console.log(x.name, 'chose', x.challenger.name); 
+    console.log(x.name, 'chose', x.challenger.name);
+    const card = cardTemplate.cloneNode(true);
+    card.style.display="block";
+    card.removeAttribute("id");
+    cards.appendChild(card);
   });
 });
