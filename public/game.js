@@ -1,7 +1,5 @@
 /* globals io, socket, playerName */
 
-console.log("game.js");
-
 function addCharacterFormItem2(character) {
   var sample=document.getElementById("character-sample");
   var li = sample.cloneNode(true);
@@ -11,18 +9,11 @@ function addCharacterFormItem2(character) {
   document.getElementById("character-choice-list").appendChild(li); 
 }
 
-
-/* STARTING THE GAME */
-socket.on('game started', function(gameState){
-  startGame(gameState);
-});
-
-
 function startGame(gameState) {
   console.log("playerName", playerName);
   var player = gameState.players.find(x => x.name == playerName);
   if (player) {
-    console.log("adding charcters", player.characters);
+    console.log("adding characters", player.characters);
     player.characters.forEach(x => addCharacterFormItem2(x.name));
   }
   
@@ -30,6 +21,11 @@ function startGame(gameState) {
     "Which of your characters would be better at: " + gameState.challenge;
   addChooseHandlers();
 }
+
+/* STARTING THE GAME */
+socket.on('game started', function(gameState){
+  startGame(gameState);
+});
 
 /* CHOOSING A CHARACTER */
 const characterForm = document.getElementById("character_form");
