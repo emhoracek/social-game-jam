@@ -19,10 +19,12 @@ class Player {
   choose(characterName) {
     const character = this.characters.find(x => x.name == characterName); 
     this.challenger = character; 
+    return this;
   }
   
   vote_for(character) {
-   this.vote = character; 
+    this.vote = character;
+    return this;
   }
 };
 

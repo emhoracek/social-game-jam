@@ -197,6 +197,11 @@ io.on('connection', function(socket){
     if (player) {
       player.choose(character);
     };
+    
+    if (gameState.players.every(x => x.challenger)) {
+      io.emit('challengers ready', gameState);
+      gameState.players.forEach(x => x.challenger = undefined);
+    }
   });
   socket.on('character update', function(character, source) {
     giphySearch(character,source).then(res => {

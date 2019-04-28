@@ -63,7 +63,6 @@ function addChooseHandlers () {
 
 function chooseChallenger () {
   socket.emit('character choice', playerName, characterChoice);
-  console.log("chose", characterChoice);
 }
 
 
@@ -79,3 +78,5 @@ function selectChoice (choice) {
   choice.style.border = "1px solid magenta";
   choice.style.background = "pink";
 }
+
+socket.on('challengers ready')
