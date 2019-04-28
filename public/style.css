@@ -117,6 +117,8 @@ form#chat_form {
   display: flex;
   align-items: center;
   justify-content: center; 
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
 #giphy {

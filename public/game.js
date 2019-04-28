@@ -17,7 +17,7 @@ function startGame(gameState) {
   }
   
   document.getElementById("game_state_message").innerText = 
-    "Which of your characters would be better at: " + gameState.challenge;
+    "Challenge!: " + gameState.challenge;
   addChooseHandlers();
 }
 
