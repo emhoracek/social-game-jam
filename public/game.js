@@ -62,6 +62,7 @@ function addChooseHandlers () {
 }
 
 function chooseChallenger () {
+  console.log("character choice", characterChoice);
   socket.emit('character choice', playerName, characterChoice);
 }
 
@@ -79,4 +80,8 @@ function selectChoice (choice) {
   choice.style.background = "pink";
 }
 
-socket.on('challengers ready')
+socket.on('challengers ready', function (gameState) {
+  gameState.players.forEach(x => {
+    console.log(x.name, 'chose', x.challenger.name); 
+  });
+});

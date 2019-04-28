@@ -192,7 +192,7 @@ io.on('connection', function(socket){
     io.emit('character added', player, character);
   });
   socket.on('character choice', function(playerName, character) {
-    console.log('character chosen', player ,character);
+    console.log('character chosen', playerName, character);
     const player = gameState.players.find((x) => x.name == playerName);
     if (player) {
       player.choose(character);
